@@ -4,7 +4,13 @@
   "description": "Practicing with redux for apps that aren't view centric",
   "main": "index.js",
   "scripts": {
-    "test": "testem"
+    "test": "testem",
+    "mocha": "echo $TEST_FOLDER && mocha $TEST_FOLDER/**/*spec.js",
+    "mocha:watch": "npm run mocha -- --watch",
+    "mocha:babel": "TEST_FOLDER=lib npm run mocha -- --compilers js:babel-core/register",
+    "mocha:babel:watch": "TEST_FOLDER=lib npm run mocha:babel -- --watch",
+    "babel": "babel lib --out-dir tmp",
+    "babel:mocha": "npm run babel && npm run mocha"
   },
   "repository": {
     "type": "git",
@@ -17,12 +23,24 @@
   },
   "homepage": "https://github.com/hafley66/redux-practice#readme",
   "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "chai": "^4.1.2",
     "mocha": "^4.0.1",
-    "testem": "^1.18.4"
+    "redux-cli-logger": "^2.0.0",
+    "sinon": "^4.0.1"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "g": "^2.0.1",
+    "lodash": "^4.17.4",
+    "react": "^16.0.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
+    "redux-subscribe": "^1.0.2",
     "redux-thunk": "^2.2.0"
   }
 }

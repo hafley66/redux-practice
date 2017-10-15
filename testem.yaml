@@ -1,3 +1,0 @@
-framework: mocha+chai
-src_files:
-    - spec/lib/index_spec.js
