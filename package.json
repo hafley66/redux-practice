@@ -1,0 +1,28 @@
+{
+  "name": "redux-practice",
+  "version": "1.0.0",
+  "description": "Practicing with redux for apps that aren't view centric",
+  "main": "index.js",
+  "scripts": {
+    "test": "testem"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hafley66/redux-practice.git"
+  },
+  "author": "Chris Hafley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hafley66/redux-practice/issues"
+  },
+  "homepage": "https://github.com/hafley66/redux-practice#readme",
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "testem": "^1.18.4"
+  },
+  "dependencies": {
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  }
+}
