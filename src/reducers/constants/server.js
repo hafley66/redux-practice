@@ -19,11 +19,3 @@ module.exports = (config) => {
     }
     return !isEmpty(nextSlice) ? {slice: nextSlice} : {};
 };
-
-function fixPublicPath(p) {
-    if(!p.match(/^\//))
-        p = `/${p}`;
-    if(!p.match(/\/$/))
-        p = `${p}/`;
-    return p;
-}

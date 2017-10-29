@@ -5,24 +5,21 @@ module.exports = (config = {}, slice = {}, parent) => {
     let P = pathFn(process.cwd()),
         {
             output: {
-                path: output = P('build').str(),
+                path: output = `${P('build')}`,
                 publicPath: publicPath = '/build'
             } = {},
             resolve: {
                 alias = {}
             } = {},
-            context = P.str()
-        }
-        = config,
+            context = `${P}`
+        } = config,
 
         {
-            home = `${P()}`,
+            home = `${P}`,
             cache = `${P('build_cache')}`
-        }
-        = slice,
+        } = slice,
 
-        {filenames}
-        = parent;
+        {filenames} = parent;
 
     + function MapToPathFns() {
         let Home = home;
@@ -33,16 +30,16 @@ module.exports = (config = {}, slice = {}, parent) => {
             home, cache, context, output
         ].map(x=>pathFn.r(Home, x));
 
-        alias = mapValues(alias, dest => pathFn.r(Home,dest).str());
+        alias = mapValues(alias, dest => `${pathFn.r(Home,dest)}`);
 
         publicPath = pathFn(publicPath);
     }();
 
     return {
         config: {
-            context: context(),
+            context: `${context()}`,
             output: {
-                path: output()
+                path: `${output()}`
             },
             resolve: {
                 alias
