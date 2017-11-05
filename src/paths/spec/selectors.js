@@ -1,7 +1,11 @@
-import {CONTEXT, BUILD, CACHE, PUBLIC_PATH, resolvePath, resolvePublicPath, getPaths, getPath} from '../selectors';
+import {HOME, CONTEXT, BUILD, CACHE, PUBLIC_PATH, resolvePath, resolvePublicPath, getPaths, getPath} from '../selectors';
 import {expect, recursiveDescribeFile} from './index';
 
 const paths = () => ({
+        [HOME]: {
+            id: HOME,
+            value: '/'
+        },
         [CONTEXT]: {
             id: CONTEXT,
             value: '/app'

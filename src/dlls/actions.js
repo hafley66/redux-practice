@@ -1,3 +1,4 @@
-import {} from '../actions/types';
-export const
-    x = 2;
+import {
+    ADD_PACKAGE_JSON,
+    ADD_DEPENDENCIES
+} from '../actions/types';

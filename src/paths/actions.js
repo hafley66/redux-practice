@@ -4,9 +4,10 @@ import {
     ADD_CACHE_PATH,
     ADD_PUBLIC_PATH,
     ADD_PATH,
-    ADD_RELATIVE_PATH
+    ADD_RELATIVE_PATH,
+    ADD_HOME_PATH
 } from '../actions/types';
-import {BUILD, CONTEXT, CACHE, PUBLIC_PATH} from './selectors';
+import {BUILD, CONTEXT, CACHE, PUBLIC_PATH, HOME} from './selectors';
 
 let id = 0;
 
@@ -26,22 +27,29 @@ const
         }
     ),
 
+    addHomePath = (value = process.cwd()) => ({
+        type: ADD_HOME_PATH,
+        id: HOME,
+        value
+    }),
+
     addBuildPath = (value) => ({
         type: ADD_BUILD_PATH,
         id: BUILD,
         value,
-        relativePathId: CONTEXT
+        relativePathId: HOME
     }),
 
     addCachePath = (value) => ({
         type: ADD_CACHE_PATH,
         id: CACHE,
         value,
-        relativePathId: CONTEXT
+        relativePathId: HOME
     }),
-    addContextPath = (value) => ({
+    addContextPath = (value = process.cwd()) => ({
         type: ADD_CONTEXT_PATH,
         id: CONTEXT,
+        relativePathId: HOME,
         value
     }),
 
@@ -67,6 +75,7 @@ const
 export {
     addPath,
     addRelativePath,
+    addHomePath,
     addBuildPath,
     addCachePath,
     addContextPath,

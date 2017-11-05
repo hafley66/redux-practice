@@ -6,8 +6,6 @@ import path from 'path';
 import reducers from '../reducers';
 import paths from '../../paths/reducers';
 
-
-
 const
     dir = (f) => path.resolve(__dirname, f),
     setup = () => (
@@ -38,18 +36,17 @@ const
 recursiveDescribeFile(__filename)({
     '.loadAssetManifest': {
         'reads the manifest file and creates a new record for the file and its contents and associated files': () =>
-            setup()
-                .then(
-                    () => {
-                        let store = s(),
-                            dispatch = store.dispatch,
-                            test = loadAssetManifest({
-                                name: 'main',
-                                path: dir('./fixtures/output/manifest.json')
-                            })(dispatch);
-                        expect(test.manifest).to.not.be.undefined;
-                    }
-                )
+            setup().then(
+                () => {
+                    let store = s(),
+                        dispatch = store.dispatch,
+                        test = dispatch(loadAssetManifest({
+                            name: 'main',
+                            path: dir('./fixtures/output/manifest.json')
+                        }));
+                    expect(test.manifest).to.not.be.undefined;
+                }
+            )
     }
 });
 

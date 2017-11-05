@@ -14,6 +14,7 @@ let
 let {
     addPath,
     addRelativePath,
+    addHomePath,
     addContextPath,
     addBuildPath,
     addCachePath,
@@ -30,7 +31,7 @@ let {
 
 recursiveDescribeFile(__filename)({
     'Tests both action producers and reducers using selectors': {
-        before: () => (s = store()),
+        before: () => (s = store(), s.dispatch(addHomePath(__dirname))),
         after: () => s = undefined,
         '.addPath': {
             'make sure paths can be added and retrieved': () => {

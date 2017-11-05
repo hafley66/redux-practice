@@ -1,6 +1,7 @@
 import {
     ADD_PATH,
     ADD_RELATIVE_PATH,
+    ADD_HOME_PATH,
     ADD_CONTEXT_PATH,
     ADD_BUILD_PATH,
     ADD_CACHE_PATH,
@@ -8,6 +9,7 @@ import {
 } from '../actions/types';
 
 import {
+    HOME,
     CONTEXT,
     BUILD,
     PUBLIC_PATH,
@@ -35,6 +37,7 @@ export default {
     defaults: () => ({}),
     [ADD_PATH]: addToPaths,
     [ADD_RELATIVE_PATH]: addToPaths,
+    [ADD_HOME_PATH]: addSpecialPath(HOME),
     [ADD_CONTEXT_PATH]: addSpecialPath(CONTEXT),
     [ADD_BUILD_PATH]: addSpecialPath(BUILD),
     [ADD_CACHE_PATH]: addSpecialPath(CACHE),

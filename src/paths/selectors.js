@@ -1,10 +1,11 @@
 import path from 'path';
 import {pick, curry, mapValues} from 'lodash';
 const
-    CONTEXT = -1,
-    BUILD = -2,
-    CACHE = -3,
-    PUBLIC_PATH = -4;
+    HOME = -1,
+    CONTEXT = -2,
+    BUILD = -3,
+    CACHE = -4,
+    PUBLIC_PATH = -5;
 const selectors = mapValues({
     resolvePath:({paths}, name) => {
         let record = paths[name];
@@ -26,6 +27,7 @@ const selectors = mapValues({
     resolvePublicPaths:(state, ids) => ids.map(selectors.resolvePublicPath(state)),
 
     getPath:({paths}, name) => paths[name],
+    getHomePath: ({paths}) => paths[HOME],
     getBuildPath:({paths}) => paths[BUILD],
     getCachePath:({paths}) => paths[CACHE],
     getContextPath:({paths}) => paths[CONTEXT],
@@ -40,5 +42,6 @@ module.exports = {
     BUILD,
     CACHE,
     CONTEXT,
-    PUBLIC_PATH
+    PUBLIC_PATH,
+    HOME
 };

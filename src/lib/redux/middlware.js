@@ -1,6 +1,7 @@
 // import thunk from 'redux-thunk';
 import {applyMiddleware} from 'redux';
 import subscribeMiddlware from 'redux-subscribe';
+import thunk from 'redux-thunk';
 
 // function logger({ getState }) {
 //     return next => action => {
@@ -19,6 +20,7 @@ import subscribeMiddlware from 'redux-subscribe';
 //
 
 export default applyMiddleware(
-    subscribeMiddlware
+    subscribeMiddlware,
+    thunk
     // , logger
 );
