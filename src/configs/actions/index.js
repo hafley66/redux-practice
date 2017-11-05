@@ -34,6 +34,8 @@ export const
         let config = Loader(path);
         let pathId = dispatch( addPath({ value: path })).id;
 
+        if(typeof config === 'function') config = config();
+
         (
             dispatch(
                 addBuildPath(findOutputPath(config))
@@ -60,7 +62,4 @@ export const
             config,
             pathId
         });
-    },
-    compileConfig = ({id, value}) => (dispatch, getState) => {
-
     };

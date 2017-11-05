@@ -1,47 +1,80 @@
 import path from 'path';
-import {pick, curry, mapValues} from 'lodash';
+import {curry, pick, camelCase, capitalize, map} from 'lodash';
 const
     HOME = -1,
     CONTEXT = -2,
     BUILD = -3,
     CACHE = -4,
-    PUBLIC_PATH = -5;
-const selectors = mapValues({
-    resolvePath:({paths}, name) => {
-        let record = paths[name];
-        if(record) {
-            if(record.relativePathId) {
-                let base = selectors.resolvePath({paths}, record.relativePathId);
-                return path.resolve(base, record.value);
+    PUBLIC_PATH = -5,
+    resolvePath = curry(
+        ({paths}, name) => {
+            let record = paths[name];
+            if(record) {
+                if(record.relativePathId) {
+                    let base = resolvePath({paths}, record.relativePathId);
+                    return path.resolve(base, record.value);
+                } else
+                    return record.value;
             } else
-                return record.value;
-        } else
-            return '';
-    },
-    resolvePublicPath:({paths}, name) =>
-        path.resolve(
-            paths[PUBLIC_PATH].value,
-            paths[name].value
-        ),
-    resolvePaths:(state, ids) => ids.map(selectors.resolvePath(state)),
-    resolvePublicPaths:(state, ids) => ids.map(selectors.resolvePublicPath(state)),
+                return '';
+        }
+    ),
+    resolvePublicPath = curry(
+        ({paths}, name) =>(
+            path.resolve(
+                paths[PUBLIC_PATH].value,
+                paths[name].value
+            )
+        )
+    ),
+    resolvePaths = curry(
+        (state, ids) => ids.map(id=>resolvePath(state, id))
+    ),
+    resolvePublicPaths = curry(
+        (state, ids) => ids.map(id=>resolvePublicPath(state, id))
 
-    getPath:({paths}, name) => paths[name],
-    getHomePath: ({paths}) => paths[HOME],
-    getBuildPath:({paths}) => paths[BUILD],
-    getCachePath:({paths}) => paths[CACHE],
-    getContextPath:({paths}) => paths[CONTEXT],
-    getPublicPath:({paths}) => paths[PUBLIC_PATH],
-    getPaths:({paths}, args) =>
-        pick(paths, args)
-}, curry);
+    ),
+    getPath = curry(
+        ({paths}, name) => paths[name]
+    ),
+    getPaths = curry(
+        ({paths}, args) =>
+            Object.values(pick(paths, args))
+    ),
+    getPublicPaths = (state, ids) =>
+        getPaths(state, ids).filter(x=>x.relativePathId === PUBLIC_PATH),
+    getBuildPaths = (state, ids) =>
+        getPaths(state, ids).filter(x=>x.relativePathId === BUILD)
 
+;
 
-module.exports = {
-    ...selectors,
+let toExport = {};
+map({
+    HOME,
+    CONTEXT,
     BUILD,
+    CACHE
+}, (specialPath, name)=>{
+    const
+        getter = ({paths}) => paths[specialPath],
+        resolver = (state) => resolvePath(getter(state)),
+        fname = capitalize(camelCase(name.toLowerCase()));
+    toExport[`get${fname}Path`] = getter;
+    toExport[`resolve${fname}Path`] = resolver;
+});
+module.exports = {
+    HOME,
     CACHE,
+    BUILD,
     CONTEXT,
     PUBLIC_PATH,
-    HOME
+    ...toExport,
+    resolvePublicPath,
+    resolvePublicPaths,
+    resolvePath,
+    resolvePaths,
+    getPath,
+    getPaths,
+    getPublicPaths,
+    getBuildPaths
 };

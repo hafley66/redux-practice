@@ -1,16 +1,30 @@
-import {getPaths, resolvePaths, resolvePublicPaths} from '../paths/selectors';
-import {mapValues, curry} from 'lodash';
+import {getPaths, getBuildPaths, getPublicPaths, resolvePaths, resolvePublicPaths} from '../paths/selectors';
 
-const selectors = mapValues({
-    getManifest: (state, id) => state.manifest[id],
-    getManifestFiles: (state, id) => getPaths(state,
-        selectors.getManifest(state, id).pathIds
+const
+    getManifest = (state, id) => state.manifests[id],
+    getManifestFiles = (state, id) => getPaths(
+        state,
+        getManifest(state, id).assetPathIds
     ),
-    resolveManifestFiles: (state, id) => resolvePaths(
-        selectors.getManifestFiles(state, id)
+    getManifestBuildFiles = (state, id) => getBuildPaths(
+        state,
+        getManifestFiles(state, id).map(x=>x.id)
     ),
-    resolvePublicManifestFiles: (state, id) => resolvePublicPaths(
-        selectors.getManifestFiles(state, id)
-    )
-}, curry);
-export default selectors;
+    getManifestPublicFiles = (state, id) => getPublicPaths(
+        state,
+        getManifestFiles(state, id).map(x=>x.id)
+    ),
+    resolveManifestBuildFiles = (state, id) => resolvePaths(
+        state,
+        getManifestBuildFiles(state, id).map(x=>x.id)
+    ),
+    resolvePublicManifestFiles = (state, id) => resolvePublicPaths(
+        state,
+        getManifestPublicFiles(state, id).map(x=>x.id)
+    );
+export {
+    getManifest,
+    getManifestFiles,
+    resolveManifestBuildFiles,
+    resolvePublicManifestFiles
+};

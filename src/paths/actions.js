@@ -69,6 +69,12 @@ const
         addRelativePath({
             ...pathRecord,
             relativePathId: CACHE
+        }),
+
+    addToPublicPath = (pathRecord) =>
+        addRelativePath({
+            ...pathRecord,
+            relativePathId: PUBLIC_PATH
         })
 ;
 
@@ -81,5 +87,6 @@ export {
     addContextPath,
     addToBuildPath,
     addToCachePath,
+    addToPublicPath,
     addPublicPath
 };

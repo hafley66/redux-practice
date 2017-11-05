@@ -1,4 +1,9 @@
-import {HOME, CONTEXT, BUILD, CACHE, PUBLIC_PATH, resolvePath, resolvePublicPath, getPaths, getPath} from '../selectors';
+import {
+    HOME, CONTEXT, BUILD, CACHE, PUBLIC_PATH,
+    resolvePath, resolvePublicPath, getPaths, getPath,
+    getBuildPaths, getPublicPaths
+} from '../selectors';
+import {map} from 'lodash';
 import {expect, recursiveDescribeFile} from './index';
 
 const paths = () => ({
@@ -21,6 +26,11 @@ const paths = () => ({
         [PUBLIC_PATH]: {
             id: PUBLIC_PATH,
             value: '/build/'
+        },
+        'build1': {
+            id: 'build1',
+            value: 'build1',
+            relativePathId: BUILD
         },
         'test1': {
             id: 'test1',
@@ -72,6 +82,12 @@ recursiveDescribeFile(__filename)({
             ).to.deep.equals(
                 [g(CONTEXT), g(BUILD)]
             );
+        }
+    },
+    '.getBuildPaths': {
+        'returns all paths relative to BUILD': () => {
+            let x = getBuildPaths(state(), map(state().paths, x=>x.id));
+            expect(x.length).to.equal(1);
         }
     }
 });

@@ -1,7 +1,7 @@
 import { ADD_ASSET_MANIFEST_FILE } from '../actions/types';
 import {isObject} from 'lodash';
 
-export default  {
+export default {
     defaults: () => ({}),
     [ADD_ASSET_MANIFEST_FILE]: (manifests, action) => (
         isObject(manifests[action.id])

@@ -54,37 +54,36 @@ recursiveDescribeFile(__filename)({
             )
         },
         'loadConfig': {
-            before: () => D(loadConfig({path: path.join(__dirname, 'fixtures', 'config.yaml')})),
-            'loads a config file and sets up the special paths': () => (
-                expect(getConfig(state())).to.deep.include({
-                    value: {
-                        output: {
-                            path: 'build',
-                            publicPath: '/'
-                        },
-                        cache: './build_cache',
-                        context: './src'
-                    }
-                }),
+            before: () =>
+                D(loadConfig({path: path.join(__dirname, 'fixtures', 'config.yaml')})),
+            'loads a config file and sets up the special paths': () =>
+                (
+                    expect(getConfig(state())).to.deep.include({
+                        value: {
+                            output: {
+                                path: 'build',
+                                publicPath: '/'
+                            },
+                            cache: './build_cache',
+                            context: './src'
+                        }
+                    }),
 
-                expect(
-                    pathSelectors.getHomePath(state()).value
-                ).to.equal(__dirname),
+                    expect(
+                        pathSelectors.getHomePath(state()).value
+                    ).to.equal(__dirname),
 
-                expect(
-                    pathSelectors.resolvePath(
-                        state(),
-                        CONTEXT
-                    )
-                ).to.equal(path.join(__dirname, 'src')),
+                    expect(
+                        pathSelectors.resolvePath(
+                            state(),
+                            CONTEXT
+                        )
+                    ).to.equal(path.join(__dirname, 'src')),
 
-                expect(
-                    pathSelectors.resolvePath(
-                        state(),
-                        BUILD
-                    )
-                ).to.equal(path.join(__dirname, 'build'))
-            )
+                    expect(
+                        pathSelectors.resolvePath(state(), BUILD)
+                    ).to.equal(path.join(__dirname, 'build'))
+                )
         }
     }
 });
