@@ -1,5 +1,6 @@
 import {loadAssetManifest} from '../actions';
 import {store, expect, recursiveDescribeFile} from '../../../spec/boilerplate';
+let rimraf = require('rimraf');
 import webpack from 'webpack';
 import path from 'path';
 import reducers from '../reducers';
@@ -8,6 +9,7 @@ import configReducers from '../../configs/reducers';
 import {loadConfig} from '../../configs/actions';
 let config = require(path.resolve(__dirname, 'fixtures', 'config.js'));
 import {getManifest, resolveManifestBuildFiles, resolvePublicManifestFiles} from '../selectors';
+import fs from 'fs';
 
 let s;
 
@@ -40,6 +42,7 @@ const
     );
 
 recursiveDescribeFile(__filename)({
+    after: () => rimraf.sync(dir('./fixtures/output')),
     '.loadAssetManifest': {
         before: () => S(),
         'reads the manifest file and creates a new record for the file and its contents and associated files': () =>
