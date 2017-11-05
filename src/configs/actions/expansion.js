@@ -8,7 +8,7 @@ class ParentOverrideError extends Error {
     static check(key, output){
         if(output.parent && !isPlainObject(output.parent))
             throw new Error(`
-Invariant: You can not expand the parent into a non-object at "${getParentKey(key)}".
+Invariant: You cannot expand the parent into a non-object at "${getParentKey(key)}".
     Evaluating -> ${  key  }.
     Output     -> ${  JSON.stringify(output)}
 `);
@@ -32,39 +32,36 @@ export const
             )
         ),
     handleExpansionOutput = (config, key, transformed) => (
-        handleScopedExpansionOutput(
-            key,
-            isPlainObject(transformed) && Object.keys(transformed).some(x=>SCOPED_KEYS.includes(x))
-                ? transformed
-                : {local: transformed}
-        )
-
+        transformed !== undefined
+            ? handleScopedExpansionOutput(
+                key,
+                isPlainObject(transformed) && Object.keys(transformed).some(x=>SCOPED_KEYS.includes(x))
+                    ? transformed
+                    : {local: transformed}
+            )
+            : config
     ),
-    expandConfig = ({id, order}) => (dispatch, getState) => {
+    expandConfig = ({order}) => (dispatch, getState) => {
         dispatch({
             type: EXPAND_CONFIG,
-            id,
             order
         });
 
-        const
-            state = getState(),
-            expansions = getExpansions(state, order);
+        const expansions = getExpansions(getState(), order);
 
         return expansions.map(
             ({key, transform}) => {
                 let state = getState();
-                let config = getConfig(state, id);
+                let config = getConfig(state);
                 let arg = get(config, key);
                 let transformed = transform(arg, {
                     dispatch,
                     state
                 });
 
-                return dispatch(updateConfig({
-                    id,
-                    value: handleExpansionOutput(config, key, transformed)
-                }));
+                return dispatch(
+                    updateConfig(handleExpansionOutput(config, key, transformed))
+                );
             }
         );
     };

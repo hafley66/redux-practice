@@ -1,26 +1,16 @@
 import {
-    ADD_CONFIG,
+    SET_CONFIG,
     UPDATE_CONFIG
 } from '../actions/types';
 
-import {isObject} from 'lodash';
+import {merge} from 'lodash';
 
 export default {
     defaults: ()=>({}),
-    [ADD_CONFIG]: (configs, action) => (
-        isObject(configs[action.id])
-            ? configs
-            : {
-                ...configs,
-                [action.id]: action
-            }
+    [SET_CONFIG]: (config, action) => (
+        merge({}, action)
     ),
-    [UPDATE_CONFIG]: (configs, action) => (
-        {
-            ...configs,
-            [action.id]: {
-                ...action
-            }
-        }
+    [UPDATE_CONFIG]: (config, action) => (
+        merge({}, config.value, action.value)
     )
 };
