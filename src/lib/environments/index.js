@@ -1,8 +1,28 @@
-// /* eslint-disable */
-let {concatMerge, loadConfig} = require('../util'),
+let {loadConfig} = require('../util'),
     {mapValues, isArray, isEmpty, isString, isPlainObject} = require('lodash');
 
-let resolveConfig = spec => {
+module.exports = {
+    normalizer: (environments) => {
+        let e = environments;
+        if(!isEmpty(e)) {
+            if(isArray(e))
+                e = e.reduce((hash, val) => (hash[val] = val, hash), {});
+            return mapValues(e, (val, key) => val === null ? key : val);
+        }
+        else return null;
+    },
+    expander: (args) => {
+        let key = process.env.WEBPACK_ENV || process.env.NODE_ENV || 'development';
+
+        if(args[key]) {
+            return {
+                global: resolveConfig(args[key])
+            };
+        }
+    }
+};
+
+function resolveConfig(spec) {
     if(isString(spec))
         try {
             return loadConfig(spec);
@@ -14,30 +34,4 @@ let resolveConfig = spec => {
         return spec;
     else
         throw new Error(`Invalid environment spec! ${spec}`);
-};
-
-
-module.exports = (config, args) => {
-    if(!isEmpty(args)) {
-        if(isArray(args))
-            args = args.reduce((hash, val) => (hash[val] = val, hash), {});
-
-        args = mapValues(args, (val, key) => val === null ? key : val);
-
-        let key = process.env.WEBPACK_ENV || process.env.NODE_ENV || 'development';
-
-        let spec =  args[key];
-
-        if(spec !== undefined || spec !== null) {
-            return concatMerge(
-                {},
-                config,
-                resolveConfig(spec)
-            );
-        } else return {};
-    } else {
-        return {};
-    }
-};
-
-
+}

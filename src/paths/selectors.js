@@ -57,10 +57,9 @@ map({
 }, (specialPath, name)=>{
     const
         getter = ({paths}) => paths[specialPath],
-        resolver = (state) => resolvePath(getter(state)),
         fname = capitalize(camelCase(name.toLowerCase()));
     toExport[`get${fname}Path`] = getter;
-    toExport[`resolve${fname}Path`] = resolver;
+    toExport[`resolve${fname}`] = (state) => resolvePath(state, specialPath);
 });
 module.exports = {
     HOME,

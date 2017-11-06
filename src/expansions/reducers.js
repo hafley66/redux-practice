@@ -4,14 +4,25 @@ import {isFunction, isPlainObject} from 'lodash';
 export const
     normalizeTransformPlainObject = ({expander, normalizer}) => (
         !!normalizer
-            ? (arg, {dispatch, state} = {}) =>
-                expander(
-                    normalizer(arg, {state}),
-                    {
-                        dispatch,
-                        state
-                    }
-                )
+            ? (arg, {dispatch, state, global, parent} = {}) => {
+                let result = normalizer(arg, {
+                    state,
+                    global,
+                    parent
+                });
+                if(result !== null && result !== undefined) {
+                    return expander(
+                        result,
+                        {
+                            dispatch,
+                            state,
+                            global,
+                            parent
+                        }
+                    );
+                }
+            }
+
             : expander
     ),
     normalizeTransform = ({key, transform, ...rest}) => ({

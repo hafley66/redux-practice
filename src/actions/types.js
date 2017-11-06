@@ -23,7 +23,9 @@ module.exports = strings2ConstantsHash(
         'ADD_ASSET_MANIFEST_FILE',
         'LOAD_ASSET_MANIFEST_FILE',
 
-        'ADD_PACKAGE_JSON',
+        'LOAD_DEPENDENCY',
+        'ADD_DEPENDENCY',
+        'UPDATE_DEPENDENCY',
 
         'COMPILE_CONFIG',
 

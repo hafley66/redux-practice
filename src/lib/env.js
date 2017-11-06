@@ -4,14 +4,11 @@ let
     SPECIAL_KEYS = ['from-array', 'from-file'],
     loadConfig = require('./util/load_config');
 
-module.exports = (__, slice) => {
-    if(!slice) {
-        return {};
-    } else{
-
+module.exports = (slice) => {
+    if(slice){
         let expanded = checkSpecialKeys(checkFromType(slice));
         return {
-            config: {
+            global: {
                 plugins: [
                     new webpack.EnvironmentPlugin(expanded)
                 ]
@@ -28,8 +25,7 @@ function expandArray(array) {
 }
 
 function expandPath(str) {
-    let loaded =  loadConfig(str);
-    return loaded;
+    return loadConfig(str);
 }
 
 function checkFromType(slice) {

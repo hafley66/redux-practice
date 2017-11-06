@@ -55,7 +55,7 @@ recursiveDescribeFile(__filename)({
         },
         'loadConfig': {
             before: () =>
-                D(loadConfig({path: path.join(__dirname, 'fixtures', 'config.yaml')})),
+                D(loadConfig({path: path.join(__dirname, 'config.yaml')})),
             'loads a config file and sets up the special paths': () =>
                 (
                     expect(getConfig(state())).to.deep.include({

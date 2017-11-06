@@ -1,6 +1,5 @@
 import {loadAssetManifest} from '../actions';
 import {store, expect, recursiveDescribeFile} from '../../../spec/boilerplate';
-let rimraf = require('rimraf');
 import webpack from 'webpack';
 import path from 'path';
 import reducers from '../reducers';
@@ -8,8 +7,8 @@ import pathsReducers from '../../paths/reducers';
 import configReducers from '../../configs/reducers';
 import {loadConfig} from '../../configs/actions';
 let config = require(path.resolve(__dirname, 'fixtures', 'config.js'));
+let rimraf = require('rimraf');
 import {getManifest, resolveManifestBuildFiles, resolvePublicManifestFiles} from '../selectors';
-import fs from 'fs';
 
 let s;
 

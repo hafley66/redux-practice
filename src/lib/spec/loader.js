@@ -1,5 +1,5 @@
 import Loader from '../loader';
-import {expect, recursiveDescribeFile} from './index';
+import {expect, recursiveDescribeFile} from '../../../spec/boilerplate';
 import path from 'path';
 
 const test = (file, output) => expect(Loader(path.resolve(__dirname, 'fixtures', file))).to.deep.equal(output);

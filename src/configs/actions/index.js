@@ -10,7 +10,7 @@ import {
     addContextPath,
     addPublicPath
 } from '../../paths/actions';
-import Loader from './loader';
+import Loader from '../../lib/loader';
 import {
     findOutputPath,
     findCachePath,

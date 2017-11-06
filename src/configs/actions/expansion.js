@@ -2,7 +2,10 @@ import { EXPAND_CONFIG } from '../../actions/types';
 import {getParentKey, getExpansions} from '../../expansions/selectors';
 import {getConfig} from '../selectors';
 import {updateConfig} from '../actions';
-import {isPlainObject, merge, get, set} from 'lodash';
+import {isPlainObject, get, set} from 'lodash';
+import concatMerge from '../../lib/util/concat_merge';
+
+let isVoid = x => x === undefined || x === null;
 
 class ParentOverrideError extends Error {
     static check(key, output){
@@ -24,11 +27,11 @@ export const
                 parent,
                 local
             }),
-            merge(
+            concatMerge(
                 {},
-                global,
-                set({}, getParentKey(key), parent),
-                set({}, key, local)
+                !isVoid(global) && global,
+                !isVoid(parent) && set({}, getParentKey(key), parent),
+                !isVoid(local) && set({}, key, local)
             )
         ),
     handleExpansionOutput = (config, key, transformed) => (
@@ -54,14 +57,20 @@ export const
                 let state = getState();
                 let config = getConfig(state);
                 let arg = get(config, key);
+                let parent = get(config, getParentKey(key));
                 let transformed = transform(arg, {
                     dispatch,
-                    state
+                    state,
+                    parent,
+                    global: config
                 });
 
-                return dispatch(
-                    updateConfig(handleExpansionOutput(config, key, transformed))
-                );
+                if(isVoid(transformed))
+                    return;
+                else
+                    return dispatch(
+                        updateConfig(handleExpansionOutput(config, key, transformed))
+                    );
             }
         );
     };
