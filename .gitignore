@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+*/build*/
+*/build/
+*/build-cache/
+
+.DS_Store
