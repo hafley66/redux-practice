@@ -1,0 +1,18 @@
+entry:
+    main: test.js
+output:
+    publicPath: /base
+    path: build
+meta:
+    buildCache: ./build-cache
+    env:
+        - NODE_ENV
+        - HELLO
+    entry:
+        hot:
+            react: true
+            webpack: true
+        globals:
+            - babel-polyfill
+    commons: true
+    assetManifest: true

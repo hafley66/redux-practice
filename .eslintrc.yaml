@@ -1,0 +1,71 @@
+---
+parser: babel-eslint
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+    experimentalObjectRestSpread: true
+
+env:
+  browser: true
+  node: true
+  mocha: true
+  es6: true
+
+
+plugins:
+  - react
+
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:import/errors
+  - plugin:import/warnings
+  - idiomatic
+
+
+
+rules:
+  camelcase: 2
+  comma-dangle:
+    - error
+    - never
+  eol-last: 2
+  eqeqeq: 2
+  indent:
+    - error
+    - 4
+    - SwitchCase: 1
+      CallExpression:
+        arguments: first
+      ArrayExpression: first
+  no-trailing-spaces: 2
+  object-property-newline: 2
+  object-curly-spacing:
+    - 2
+    - always
+  prefer-template: error
+  quotes:
+    - 2
+    - single
+    - avoidEscape: true
+      allowTemplateLiterals: true
+  semi:
+    - error
+    - always
+  space-infix-ops: 2
+  no-var: 2
+  key-spacing:
+    - error
+    - align: value
+  no-multi-spaces:
+    - error
+    - exceptions:
+        VariableDeclarator: true
+        Property: true
+        ImportDeclaration: true
+  curly: 0
+  one-var: 0
+  no-inline-comments: 0
+  no-debugger: 0
