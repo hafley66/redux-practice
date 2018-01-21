@@ -1,29 +1,27 @@
 const DEFAULTS = {
-    react: true,
+    react:   true,
     webpack: true
 };
-let {compact} = require('lodash');
-module.exports = (config, arg = false) => {
+let { compact } = require( 'lodash' );
+module.exports = ( arg = false, { config }) => {
     let globals = [];
-    if(arg) {
-        if(arg === true) arg = DEFAULTS;
+    if ( arg ) {
+        if ( arg === true ) arg = DEFAULTS;
 
-        let {react, webpack} = arg;
+        let { react, webpack } = arg;
 
-        globals = compact([
-            react ? 'react-hot-loader/patch' : undefined,
+        globals = globals.concat( compact([
+            ( react )
+                ? 'react-hot-loader/patch'
+                : undefined,
             ...(
                 webpack
-                    ? [ getWebpackDevServerEntry(config),
+                    ? [ `webpack-dev-server/client?${config.meta.absolutePublicPath}`,
                         'webpack/hot/only-dev-server' ]
                     : []
             )
-        ]);
-    }
-    return {parent: {globals}};
-};
 
-function getWebpackDevServerEntry(config) {
-    let {'meta.constants.server.url':url} = config;
-    return url ? `webpack-dev-server/client?${  url  }` : '';
-}
+        ]));
+    }
+    return { parent: { globals } };
+};

@@ -1,29 +1,26 @@
-const
-    {merge, values} = require('lodash');
+const { merge, values } = require( 'lodash' );
 
-module.exports = (config, {args = {}} = {}) => {
+module.exports = ( args ) => {
     const
         DEFAULTS = {
             yaml: {
-                test: /\.ya?ml$/ig,
-                loader: ['json-loader','yaml-loader'],
-                exclude: /node_modules/
+                test:   /\.ya?ml$/ig,
+                loader: [ 'json-loader', 'yaml-loader' ]
             },
             json: {
-                test: /\.json$/ig,
-                loader: 'json-loader',
-                exclude: /node_modules/
+                test:   /\.json$/ig,
+                loader: 'json-loader'
             }
         },
-        loaders = values(merge(
+        loaders = values( merge(
             {},
             DEFAULTS,
             args
         ));
 
     return {
-        config: {
-            module: {rules: values(loaders)}
+        global: {
+            module: { rules: values( loaders ) }
         }
     };
 };

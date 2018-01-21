@@ -7,18 +7,18 @@ import {
     ADD_RELATIVE_PATH,
     ADD_HOME_PATH
 } from '../actions/types';
-import {BUILD, CONTEXT, CACHE, PUBLIC_PATH, HOME} from './selectors';
+import { BUILD, CONTEXT, CACHE, PUBLIC_PATH, HOME } from './selectors';
 
 let id = 0;
 
 const
-    addPath = ({value}) => ({
+    addPath = ({ value }) => ({
         type: ADD_PATH,
         id: id++,
         value
     }),
 
-    addRelativePath = ({value, relativePathId = CONTEXT}) => (
+    addRelativePath = ({ value, relativePathId = CONTEXT }) => (
         {
             type: ADD_RELATIVE_PATH,
             id: id++,
@@ -27,51 +27,51 @@ const
         }
     ),
 
-    addHomePath = (value = process.cwd()) => ({
+    addHomePath = ( value = process.cwd()) => ({
         type: ADD_HOME_PATH,
         id: HOME,
         value
     }),
 
-    addBuildPath = (value) => ({
+    addBuildPath = ( value ) => ({
         type: ADD_BUILD_PATH,
         id: BUILD,
         value,
         relativePathId: HOME
     }),
 
-    addCachePath = (value) => ({
+    addCachePath = ( value ) => ({
         type: ADD_CACHE_PATH,
         id: CACHE,
         value,
         relativePathId: HOME
     }),
-    addContextPath = (value = process.cwd()) => ({
+    addContextPath = ( value = process.cwd()) => ({
         type: ADD_CONTEXT_PATH,
         id: CONTEXT,
         relativePathId: HOME,
         value
     }),
 
-    addPublicPath = (value) => ({
+    addPublicPath = ( value ) => ({
         type: ADD_PUBLIC_PATH,
         id: PUBLIC_PATH,
         value
     }),
 
-    addToBuildPath = (pathRecord) =>
+    addToBuildPath = ( pathRecord ) =>
         addRelativePath({
             ...pathRecord,
             relativePathId: BUILD
         }),
 
-    addToCachePath = (pathRecord) =>
+    addToCachePath = ( pathRecord ) =>
         addRelativePath({
             ...pathRecord,
             relativePathId: CACHE
         }),
 
-    addToPublicPath = (pathRecord) =>
+    addToPublicPath = ( pathRecord ) =>
         addRelativePath({
             ...pathRecord,
             relativePathId: PUBLIC_PATH

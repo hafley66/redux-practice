@@ -1,15 +1,22 @@
 const ExtractTextPlugin = require( `extract-text-webpack-plugin` ),
-    {isString, merge, compact} = require('lodash'),
-    path = require('path'),
-    fs = require('fs');
+    { isString, merge, compact } = require( 'lodash' ),
+    path = require( 'path' ),
+    fs = require( 'fs' );
 
 let no = undefined;
 
-module.exports = function makeStyleLoader( loader, {sourceMap = false, extract = false, withCssModules = false} = {}) {
-    if(extract) {
-        return  ExtractTextPlugin.extract({
-            use: ensureLoaderOrder(),
-            fallback: 'style-loader',
+module.exports = function makeStyleLoader(
+    loader,
+    {
+        sourceMap = false,
+        extract = false,
+        withCssModules = false
+    } = {}
+) {
+    if ( extract ) {
+        return ExtractTextPlugin.extract({
+            use:       ensureLoaderOrder(),
+            fallback:  'style-loader',
             allChunks: true
         });
     } else {
@@ -20,18 +27,19 @@ module.exports = function makeStyleLoader( loader, {sourceMap = false, extract =
         return compact([
             !extract
                 ? {
-                    loader: 'style-loader',
-                    options: {sourceMap}
+                    loader:  'style-loader',
+                    options: { sourceMap }
                 }
                 : no,
             {
-                loader: 'css-loader',
+                loader:  'css-loader',
                 options: merge(
-                    {sourceMap},
+                    { sourceMap },
                     withCssModules
                         ? {
-                            modules: true,
-                            importLoaders: 1}
+                            modules:       true,
+                            importLoaders: 1
+                        }
                         : no,
                     hasPostCssConfig()
                         ? {
@@ -42,26 +50,26 @@ module.exports = function makeStyleLoader( loader, {sourceMap = false, extract =
             },
             hasPostCssConfig()
                 ? {
-                    loader: 'postcss-loader',
-                    options: {sourceMap}
+                    loader:  'postcss-loader',
+                    options: { sourceMap }
                 }
                 : no,
             loader
-                ? normalizeLoader(loader, sourceMap)
+                ? normalizeLoader( loader, sourceMap )
                 : no
         ]);
     }
 };
 
 function hasPostCssConfig() {
-    return fs.existsSync(path.resolve(process.cwd(), 'postcss.config.js'));
+    return fs.existsSync( path.resolve( process.cwd(), 'postcss.config.js' ));
 }
 
-function normalizeLoader(loader, sourceMap = false) {
-    if(isString(loader)) {
-        loader = {loader};
+function normalizeLoader( loader, sourceMap = false ) {
+    if ( isString( loader )) {
+        loader = { loader };
     }
 
-    loader.options = merge({sourceMap}, loader.options);
+    loader.options = merge({ sourceMap }, loader.options );
     return loader;
 }

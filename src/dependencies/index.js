@@ -19,7 +19,7 @@ const loadDependency = ({name, cachePath, currentValue}) => (dispatch, getState)
 
     try {
         cachedValue = require(cachedPath);
-    }catch(err) {
+    } catch(err) {
         cachedValue = null;
     }
 
@@ -36,11 +36,11 @@ const updateDependency = ({name}) => (dispatch, getState) => {
     let dep = s.dependencies[name];
     let cacheFile = resolvePath(s, dep.cachedPathId);
     fs.writeFileSync(cacheFile, JSON.stringify(dep.currentValue));
-    return {
+    return  dispatch({
         type: UPDATE_DEPENDENCY,
         id: dep.id,
         cachedValue: dep.currentValue
-    };
+    });
 };
 
 let actions = {

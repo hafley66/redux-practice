@@ -35,7 +35,7 @@ recursiveDescribeFile(__filename)({
             )
         },
         '.normalizeTransformPlainObject': {
-            'Allows the transform argument to be an object with an expander and normlizer':{
+            'Allows the transform argument to be an object with an expander and normalizer':{
                 'when .normalizer is present': {
                     'composes .expander with .normalizer called as first arg': () => (
                         set({

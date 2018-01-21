@@ -1,7 +1,7 @@
 const
-    {isBoolean, omit, map, merge, compact} = require('lodash'),
-    make = require('./make_style_loader'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin');
+    { omit, map, merge, compact } = require( 'lodash' ),
+    make = require( './make_style_loader' ),
+    ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 
 const
     DEFAULTS = {
@@ -10,51 +10,57 @@ const
         },
         less: {
             test: /\.less$/ig,
-            use: {
+            use:  {
                 loader: 'less-loader'
+            }
+        },
+        sass: {
+            test: /\.s(a|c)ss$/ig,
+            use:  {
+                loader: 'sass-loader'
             }
         }
     };
 
 module.exports = (
-    {meta:{constants:{filenames}}},
     {
         args = {},
         options = {
-            extract: false,
-            minify: false,
-            sourceMap: false
+            extract:   false,
+            minify:    false,
+            sourceMap: false,
+            filename:  undefined
         }
-    } = {}
+    } = {},
+    { config = {} } = {}
 ) => {
 
+    options.filename = options.filename || config.meta.filenames.css();
+
     const
-        usedDefaults = isBoolean(args.defaults) && args.defaults === false
+        usedDefaults = args.defaults && args.defaults === false
             ? {}
-            : DEFAULTS
-        ,
-        defaultedArgs = merge({}, usedDefaults, omit(args, 'defaults'))
-        ,
+            : DEFAULTS,
+        defaultedArgs = merge({}, usedDefaults, omit( args, 'defaults' )),
         easyMake = loaderSpec => {
             let res = (
-                merge(loaderSpec, {
-                    use: make(loaderSpec.use, options)
+                merge( loaderSpec, {
+                    use: make( loaderSpec.use, options )
                 })
             );
             return res;
-        }
-        ,
-        rules = map(defaultedArgs, easyMake)
+        },
+        rules = map( defaultedArgs, easyMake )
         ;
 
 
 
     return {
-        config: {
-            module: {rules},
+        global: {
+            module:  { rules },
             plugins: compact([
-                (options && options.extract)
-                    ? new ExtractTextPlugin(filenames.css())
+                ( options && options.extract )
+                    ? new ExtractTextPlugin( options.filename )
                     : null
             ])
         }

@@ -1,27 +1,24 @@
-const
-    {merge, values} = require('lodash');
-
-module.exports = (config, {args = {}} = {}) => {
-    const
-        DEFAULTS = {
-            js: {
-                test: /\.jsx?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                options: {
-                    cacheDirectory: true
-                }
-            }
-        },
-        rules = values(merge(
-            {},
-            DEFAULTS,
-            args
-        ));
+const { merge, values } = require( 'lodash' );
+const DEFAULTS = {
+    js: {
+        test:    /\.jsx?$/,
+        loader:  'babel-loader',
+        exclude: /node_modules/,
+        options: {
+            cacheDirectory: true
+        }
+    }
+};
+module.exports = ( args = false ) => {
+    const rules = values( merge(
+        {},
+        DEFAULTS,
+        args
+    ));
 
     return {
-        config: {
-            module: {rules: (rules)}
+        global: {
+            module: { rules: ( rules ) }
         }
     };
 };

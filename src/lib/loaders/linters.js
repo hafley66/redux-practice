@@ -1,28 +1,28 @@
-let {compact,values, isPlainObject} = require('lodash');
+let { compact, values, isPlainObject } = require( 'lodash' );
 const
     DEFAULTS_OUT = {
         css: null,
-        js: {
-            test: /\.jsx?$/,
+        js:  {
+            test:    /\.jsx?$/,
             enforce: 'pre',
-            loader: 'eslint-loader',
+            loader:  'eslint-loader',
             exclude: /node_modules/,
             options: {
-                fix: true,
+                fix:           true,
                 failOnWarning: false,
-                failOnError: true
+                failOnError:   true
             }
         }
     };
 
 
-module.exports = (config, args) => {
+module.exports = ( args ) => {
     let getOutputs = () =>
         args
             ? (
                 args === true
-                    ? values(DEFAULTS_OUT)
-                    : isPlainObject(args)
+                    ? values( DEFAULTS_OUT )
+                    : isPlainObject( args )
                         ? [
                             args.css && DEFAULTS_OUT.css,
                             args.js && DEFAULTS_OUT.js
@@ -31,9 +31,9 @@ module.exports = (config, args) => {
             : [];
 
     return {
-        config: {
+        global: {
             module: {
-                rules: compact(getOutputs())
+                rules: compact( getOutputs())
             }
         }
     };

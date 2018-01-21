@@ -1,8 +1,11 @@
 import {get} from 'lodash';
 export const
     getConfig = ({config}) => config,
-    findOutputPath = (config) => get(config, 'output.path'),
+
     findPublicPath = (config) => get(config, 'output.publicPath'),
+    findOutputPath = (config) => get(config, 'output.path'),
     findContextPath = (config) => get(config, 'context'),
     findCachePath = (config) => get(config, 'cache'),
-    isHot = (config) => get(config, 'hot') || get(config, 'devServer.hot');
+
+    isHot = (config) => get(config, 'hot') || get(config, 'devServer.hot'),
+    isUsingSourceMap = (c) => get(c, 'devtool') === 'source-map';

@@ -88,6 +88,12 @@ ansi-styles@^2.2.1:
   version "2.2.1"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
 
+ansi-styles@^3.1.0:
+  version "3.2.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/ansi-styles/-/ansi-styles-3.2.0.tgz#c159b8d5be0f9e5a6f346dab94f16ce022161b88"
+  dependencies:
+    color-convert "^1.9.0"
+
 anymatch@^1.3.0:
   version "1.3.2"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/anymatch/-/anymatch-1.3.2.tgz#553dcb8f91e3c889845dfdba34c77721b90b9d7a"
@@ -182,26 +188,29 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-babel-cli@^6.26.0:
-  version "6.26.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-cli/-/babel-cli-6.26.0.tgz#502ab54874d7db88ad00b887a06383ce03d002f1"
+babel-cli@^7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-cli/-/babel-cli-7.0.0-beta.3.tgz#c8e4923fc024154411c8e164b5e7249d1f2fead2"
   dependencies:
-    babel-core "^6.26.0"
-    babel-polyfill "^6.26.0"
-    babel-register "^6.26.0"
-    babel-runtime "^6.26.0"
-    commander "^2.11.0"
-    convert-source-map "^1.5.0"
+    babel-core "7.0.0-beta.3"
+    commander "^2.8.1"
+    convert-source-map "^1.1.0"
     fs-readdir-recursive "^1.0.0"
-    glob "^7.1.2"
-    lodash "^4.17.4"
-    output-file-sync "^1.1.2"
-    path-is-absolute "^1.0.1"
+    glob "^7.0.0"
+    lodash "^4.2.0"
+    output-file-sync "^2.0.0"
     slash "^1.0.0"
-    source-map "^0.5.6"
-    v8flags "^2.1.1"
+    source-map "^0.5.0"
   optionalDependencies:
     chokidar "^1.6.1"
+
+babel-code-frame@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-code-frame/-/babel-code-frame-7.0.0-beta.3.tgz#1614a91b2ba0e3848559f410bbacd030726899c9"
+  dependencies:
+    chalk "^2.0.0"
+    esutils "^2.0.2"
+    js-tokens "^3.0.0"
 
 babel-code-frame@^6.26.0:
   version "6.26.0"
@@ -210,6 +219,25 @@ babel-code-frame@^6.26.0:
     chalk "^1.1.3"
     esutils "^2.0.2"
     js-tokens "^3.0.2"
+
+babel-core@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-core/-/babel-core-7.0.0-beta.3.tgz#3777e45c802e7f6c13c5c3a01c618a388fb0e252"
+  dependencies:
+    babel-code-frame "7.0.0-beta.3"
+    babel-generator "7.0.0-beta.3"
+    babel-helpers "7.0.0-beta.3"
+    babel-template "7.0.0-beta.3"
+    babel-traverse "7.0.0-beta.3"
+    babel-types "7.0.0-beta.3"
+    babylon "7.0.0-beta.27"
+    convert-source-map "^1.1.0"
+    debug "^3.0.1"
+    json5 "^0.5.0"
+    lodash "^4.2.0"
+    micromatch "^2.3.11"
+    resolve "^1.3.2"
+    source-map "^0.5.0"
 
 babel-core@^6.26.0:
   version "6.26.0"
@@ -235,6 +263,16 @@ babel-core@^6.26.0:
     slash "^1.0.0"
     source-map "^0.5.6"
 
+babel-generator@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-generator/-/babel-generator-7.0.0-beta.3.tgz#afa85e34c50ef52ccd0ef37f4c4b5e1df65cac04"
+  dependencies:
+    babel-types "7.0.0-beta.3"
+    jsesc "^2.5.1"
+    lodash "^4.2.0"
+    source-map "^0.5.0"
+    trim-right "^1.0.1"
+
 babel-generator@^6.26.0:
   version "6.26.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-generator/-/babel-generator-6.26.0.tgz#ac1ae20070b79f6e3ca1d3269613053774f20dc5"
@@ -247,22 +285,6 @@ babel-generator@^6.26.0:
     lodash "^4.17.4"
     source-map "^0.5.6"
     trim-right "^1.0.1"
-
-babel-helper-bindify-decorators@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-bindify-decorators/-/babel-helper-bindify-decorators-6.24.1.tgz#14c19e5f142d7b47f19a52431e52b1ccbc40a330"
-  dependencies:
-    babel-runtime "^6.22.0"
-    babel-traverse "^6.24.1"
-    babel-types "^6.24.1"
-
-babel-helper-builder-binary-assignment-operator-visitor@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-builder-binary-assignment-operator-visitor/-/babel-helper-builder-binary-assignment-operator-visitor-6.24.1.tgz#cce4517ada356f4220bcae8a02c2b346f9a56664"
-  dependencies:
-    babel-helper-explode-assignable-expression "^6.24.1"
-    babel-runtime "^6.22.0"
-    babel-types "^6.24.1"
 
 babel-helper-call-delegate@^6.24.1:
   version "6.24.1"
@@ -282,22 +304,14 @@ babel-helper-define-map@^6.24.1:
     babel-types "^6.26.0"
     lodash "^4.17.4"
 
-babel-helper-explode-assignable-expression@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-explode-assignable-expression/-/babel-helper-explode-assignable-expression-6.24.1.tgz#f25b82cf7dc10433c55f70592d5746400ac22caa"
+babel-helper-function-name@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-function-name/-/babel-helper-function-name-7.0.0-beta.3.tgz#e86dd2eb2c09e06e392e79e203fc02427b24c871"
   dependencies:
-    babel-runtime "^6.22.0"
-    babel-traverse "^6.24.1"
-    babel-types "^6.24.1"
-
-babel-helper-explode-class@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-explode-class/-/babel-helper-explode-class-6.24.1.tgz#7dc2a3910dee007056e1e31d640ced3d54eaa9eb"
-  dependencies:
-    babel-helper-bindify-decorators "^6.24.1"
-    babel-runtime "^6.22.0"
-    babel-traverse "^6.24.1"
-    babel-types "^6.24.1"
+    babel-helper-get-function-arity "7.0.0-beta.3"
+    babel-template "7.0.0-beta.3"
+    babel-traverse "7.0.0-beta.3"
+    babel-types "7.0.0-beta.3"
 
 babel-helper-function-name@^6.24.1:
   version "6.24.1"
@@ -308,6 +322,12 @@ babel-helper-function-name@^6.24.1:
     babel-template "^6.24.1"
     babel-traverse "^6.24.1"
     babel-types "^6.24.1"
+
+babel-helper-get-function-arity@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-get-function-arity/-/babel-helper-get-function-arity-7.0.0-beta.3.tgz#61a47709318a31bc2db872f4be9b4c8447198be8"
+  dependencies:
+    babel-types "7.0.0-beta.3"
 
 babel-helper-get-function-arity@^6.24.1:
   version "6.24.1"
@@ -330,7 +350,7 @@ babel-helper-optimise-call-expression@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
-babel-helper-regex@^6.24.1:
+babel-helper-regex@^6.24.1, babel-helper-regex@^6.26.0:
   version "6.26.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-regex/-/babel-helper-regex-6.26.0.tgz#325c59f902f82f24b74faceed0363954f6495e72"
   dependencies:
@@ -338,15 +358,14 @@ babel-helper-regex@^6.24.1:
     babel-types "^6.26.0"
     lodash "^4.17.4"
 
-babel-helper-remap-async-to-generator@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-remap-async-to-generator/-/babel-helper-remap-async-to-generator-6.24.1.tgz#5ec581827ad723fecdd381f1c928390676e4551b"
+babel-helper-remap-async-to-generator@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-remap-async-to-generator/-/babel-helper-remap-async-to-generator-7.0.0-beta.3.tgz#03d300afbbf85262512923caec9790e6e8beeb18"
   dependencies:
-    babel-helper-function-name "^6.24.1"
-    babel-runtime "^6.22.0"
-    babel-template "^6.24.1"
-    babel-traverse "^6.24.1"
-    babel-types "^6.24.1"
+    babel-helper-wrap-function "7.0.0-beta.3"
+    babel-template "7.0.0-beta.3"
+    babel-traverse "7.0.0-beta.3"
+    babel-types "7.0.0-beta.3"
 
 babel-helper-replace-supers@^6.24.1:
   version "6.24.1"
@@ -358,6 +377,23 @@ babel-helper-replace-supers@^6.24.1:
     babel-template "^6.24.1"
     babel-traverse "^6.24.1"
     babel-types "^6.24.1"
+
+babel-helper-wrap-function@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helper-wrap-function/-/babel-helper-wrap-function-7.0.0-beta.3.tgz#0698f3acd2b61bf2ff2f3c8417eb80e878b175fc"
+  dependencies:
+    babel-helper-function-name "7.0.0-beta.3"
+    babel-template "7.0.0-beta.3"
+    babel-traverse "7.0.0-beta.3"
+    babel-types "7.0.0-beta.3"
+
+babel-helpers@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-helpers/-/babel-helpers-7.0.0-beta.3.tgz#1758004cb44f6e4d9b7a3adfaeaa82acfddc0c4c"
+  dependencies:
+    babel-template "7.0.0-beta.3"
+    babel-traverse "7.0.0-beta.3"
+    babel-types "7.0.0-beta.3"
 
 babel-helpers@^6.24.1:
   version "6.24.1"
@@ -378,88 +414,93 @@ babel-plugin-check-es2015-constants@^6.22.0:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-syntax-async-functions@^6.8.0:
-  version "6.13.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
+babel-plugin-syntax-async-generators@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-async-generators/-/babel-plugin-syntax-async-generators-7.0.0-beta.3.tgz#f177f72fc88696911129e1e832e560595244034e"
 
-babel-plugin-syntax-async-generators@^6.5.0:
-  version "6.13.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-async-generators/-/babel-plugin-syntax-async-generators-6.13.0.tgz#6bc963ebb16eccbae6b92b596eb7f35c342a8b9a"
+babel-plugin-syntax-class-properties@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-class-properties/-/babel-plugin-syntax-class-properties-7.0.0-beta.3.tgz#84480d42dc9ec49f5f8e1e62fb435151cbbe11a3"
 
-babel-plugin-syntax-class-constructor-call@^6.18.0:
-  version "6.18.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-class-constructor-call/-/babel-plugin-syntax-class-constructor-call-6.18.0.tgz#9cb9d39fe43c8600bec8146456ddcbd4e1a76416"
+babel-plugin-syntax-decorators@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-decorators/-/babel-plugin-syntax-decorators-7.0.0-beta.3.tgz#c1c4861f1f76138ab15ca6c28db7146e60d4fc2f"
 
-babel-plugin-syntax-class-properties@^6.8.0:
-  version "6.13.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-class-properties/-/babel-plugin-syntax-class-properties-6.13.0.tgz#d7eb23b79a317f8543962c505b827c7d6cac27de"
+babel-plugin-syntax-do-expressions@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-do-expressions/-/babel-plugin-syntax-do-expressions-7.0.0-beta.3.tgz#bb79a27185bee922051a77aea4a724e4d9106fd9"
 
-babel-plugin-syntax-decorators@^6.13.0:
-  version "6.13.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-decorators/-/babel-plugin-syntax-decorators-6.13.0.tgz#312563b4dbde3cc806cee3e416cceeaddd11ac0b"
+babel-plugin-syntax-dynamic-import@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-dynamic-import/-/babel-plugin-syntax-dynamic-import-7.0.0-beta.3.tgz#4f2e87a6ac12947422392b76a526cdc766a607ac"
 
-babel-plugin-syntax-dynamic-import@^6.18.0:
-  version "6.18.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-dynamic-import/-/babel-plugin-syntax-dynamic-import-6.18.0.tgz#8d6a26229c83745a9982a441051572caa179b1da"
+babel-plugin-syntax-export-extensions@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-export-extensions/-/babel-plugin-syntax-export-extensions-7.0.0-beta.3.tgz#eb6891a63f86652e2f09c332f2ff06a83c07da28"
 
-babel-plugin-syntax-exponentiation-operator@^6.8.0:
-  version "6.13.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-exponentiation-operator/-/babel-plugin-syntax-exponentiation-operator-6.13.0.tgz#9ee7e8337290da95288201a6a57f4170317830de"
+babel-plugin-syntax-function-bind@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-function-bind/-/babel-plugin-syntax-function-bind-7.0.0-beta.3.tgz#0e6de220815bc24dfc662b5f70a9841ee887e6d9"
 
-babel-plugin-syntax-export-extensions@^6.8.0:
-  version "6.13.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-export-extensions/-/babel-plugin-syntax-export-extensions-6.13.0.tgz#70a1484f0f9089a4e84ad44bac353c95b9b12721"
+babel-plugin-syntax-function-sent@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-function-sent/-/babel-plugin-syntax-function-sent-7.0.0-beta.3.tgz#bd217b5441f64fbeeaaf65512ccdeb05094457c3"
+
+babel-plugin-syntax-numeric-separator@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-numeric-separator/-/babel-plugin-syntax-numeric-separator-7.0.0-beta.3.tgz#c94cc94985f55fa62a1f270ad6d48458459589fe"
+
+babel-plugin-syntax-object-rest-spread@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-7.0.0-beta.3.tgz#7f781c180899dafd88f132f69472397549be48e5"
 
 babel-plugin-syntax-object-rest-spread@^6.8.0:
   version "6.13.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
 
-babel-plugin-syntax-trailing-function-commas@^6.22.0:
-  version "6.22.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-trailing-function-commas/-/babel-plugin-syntax-trailing-function-commas-6.22.0.tgz#ba0360937f8d06e40180a43fe0d5616fff532cf3"
+babel-plugin-syntax-optional-catch-binding@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-optional-catch-binding/-/babel-plugin-syntax-optional-catch-binding-7.0.0-beta.3.tgz#61416bec2803a97ff25beb80771ce88e21793365"
 
-babel-plugin-transform-async-generator-functions@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-async-generator-functions/-/babel-plugin-transform-async-generator-functions-6.24.1.tgz#f058900145fd3e9907a6ddf28da59f215258a5db"
-  dependencies:
-    babel-helper-remap-async-to-generator "^6.24.1"
-    babel-plugin-syntax-async-generators "^6.5.0"
-    babel-runtime "^6.22.0"
+babel-plugin-syntax-optional-chaining@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-optional-chaining/-/babel-plugin-syntax-optional-chaining-7.0.0-beta.3.tgz#0abab5055caddd68d099263c2d65ad5d5da97e3d"
 
-babel-plugin-transform-async-to-generator@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-async-to-generator/-/babel-plugin-transform-async-to-generator-6.24.1.tgz#6536e378aff6cb1d5517ac0e40eb3e9fc8d08761"
-  dependencies:
-    babel-helper-remap-async-to-generator "^6.24.1"
-    babel-plugin-syntax-async-functions "^6.8.0"
-    babel-runtime "^6.22.0"
+babel-plugin-syntax-pipeline-operator@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-pipeline-operator/-/babel-plugin-syntax-pipeline-operator-7.0.0-beta.3.tgz#f8d17f9d5fdf8a515c0d5a33d2483665575bdf9d"
 
-babel-plugin-transform-class-constructor-call@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-class-constructor-call/-/babel-plugin-transform-class-constructor-call-6.24.1.tgz#80dc285505ac067dcb8d6c65e2f6f11ab7765ef9"
-  dependencies:
-    babel-plugin-syntax-class-constructor-call "^6.18.0"
-    babel-runtime "^6.22.0"
-    babel-template "^6.24.1"
+babel-plugin-syntax-throw-expressions@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-syntax-throw-expressions/-/babel-plugin-syntax-throw-expressions-7.0.0-beta.3.tgz#a3469edbf3561b881ea8908d5a9232cbb4e0377a"
 
-babel-plugin-transform-class-properties@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-class-properties/-/babel-plugin-transform-class-properties-6.24.1.tgz#6a79763ea61d33d36f37b611aa9def81a81b46ac"
+babel-plugin-transform-async-generator-functions@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-async-generator-functions/-/babel-plugin-transform-async-generator-functions-7.0.0-beta.3.tgz#0e6079201bfd7030c281983ed4e7662f6f986587"
   dependencies:
-    babel-helper-function-name "^6.24.1"
-    babel-plugin-syntax-class-properties "^6.8.0"
-    babel-runtime "^6.22.0"
-    babel-template "^6.24.1"
+    babel-helper-remap-async-to-generator "7.0.0-beta.3"
+    babel-plugin-syntax-async-generators "7.0.0-beta.3"
 
-babel-plugin-transform-decorators@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-decorators/-/babel-plugin-transform-decorators-6.24.1.tgz#788013d8f8c6b5222bdf7b344390dfd77569e24d"
+babel-plugin-transform-class-properties@7.0.0-beta.3, babel-plugin-transform-class-properties@^7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-class-properties/-/babel-plugin-transform-class-properties-7.0.0-beta.3.tgz#d7cf0e431512262499421d53582969503f24581a"
   dependencies:
-    babel-helper-explode-class "^6.24.1"
-    babel-plugin-syntax-decorators "^6.13.0"
-    babel-runtime "^6.22.0"
-    babel-template "^6.24.1"
-    babel-types "^6.24.1"
+    babel-helper-function-name "7.0.0-beta.3"
+    babel-plugin-syntax-class-properties "7.0.0-beta.3"
+    babel-template "7.0.0-beta.3"
+
+babel-plugin-transform-decorators@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-decorators/-/babel-plugin-transform-decorators-7.0.0-beta.3.tgz#a4f7b348e174d665b1d474b1261f95c794319c0f"
+  dependencies:
+    babel-plugin-syntax-decorators "7.0.0-beta.3"
+    babel-template "7.0.0-beta.3"
+
+babel-plugin-transform-do-expressions@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-do-expressions/-/babel-plugin-transform-do-expressions-7.0.0-beta.3.tgz#1d2386077f808a90434b13bc4a3e2538c30cde2f"
+  dependencies:
+    babel-plugin-syntax-do-expressions "7.0.0-beta.3"
 
 babel-plugin-transform-es2015-arrow-functions@^6.22.0:
   version "6.22.0"
@@ -629,27 +670,67 @@ babel-plugin-transform-es2015-unicode-regex@^6.24.1:
     babel-runtime "^6.22.0"
     regexpu-core "^2.0.0"
 
-babel-plugin-transform-exponentiation-operator@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-exponentiation-operator/-/babel-plugin-transform-exponentiation-operator-6.24.1.tgz#2ab0c9c7f3098fa48907772bb813fe41e8de3a0e"
+babel-plugin-transform-export-default@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-export-default/-/babel-plugin-transform-export-default-7.0.0-beta.3.tgz#ab53d924fd4dc774e20e059ada1624b87d1a0001"
   dependencies:
-    babel-helper-builder-binary-assignment-operator-visitor "^6.24.1"
-    babel-plugin-syntax-exponentiation-operator "^6.8.0"
-    babel-runtime "^6.22.0"
+    babel-plugin-syntax-export-extensions "7.0.0-beta.3"
 
-babel-plugin-transform-export-extensions@^6.22.0:
-  version "6.22.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-export-extensions/-/babel-plugin-transform-export-extensions-6.22.0.tgz#53738b47e75e8218589eea946cbbd39109bbe653"
+babel-plugin-transform-export-namespace@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-export-namespace/-/babel-plugin-transform-export-namespace-7.0.0-beta.3.tgz#62bf14156e71772c4bf5858caa606db0a8e5004d"
   dependencies:
-    babel-plugin-syntax-export-extensions "^6.8.0"
-    babel-runtime "^6.22.0"
+    babel-plugin-syntax-export-extensions "7.0.0-beta.3"
 
-babel-plugin-transform-object-rest-spread@^6.22.0, babel-plugin-transform-object-rest-spread@^6.26.0:
+babel-plugin-transform-function-bind@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-function-bind/-/babel-plugin-transform-function-bind-7.0.0-beta.3.tgz#905f34f2b4f584f931d13e06df3c5fe09a3a2000"
+  dependencies:
+    babel-plugin-syntax-function-bind "7.0.0-beta.3"
+
+babel-plugin-transform-function-sent@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-function-sent/-/babel-plugin-transform-function-sent-7.0.0-beta.3.tgz#a9f59630c1347cfe16a1af62102c287e9e7a6045"
+  dependencies:
+    babel-helper-wrap-function "7.0.0-beta.3"
+    babel-plugin-syntax-function-sent "7.0.0-beta.3"
+
+babel-plugin-transform-numeric-separator@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-numeric-separator/-/babel-plugin-transform-numeric-separator-7.0.0-beta.3.tgz#741baae498e374a5439bf046e75708a72faa218c"
+  dependencies:
+    babel-plugin-syntax-numeric-separator "7.0.0-beta.3"
+
+babel-plugin-transform-object-rest-spread@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-object-rest-spread/-/babel-plugin-transform-object-rest-spread-7.0.0-beta.3.tgz#5c409f3cd70819dbb3382d2056971c5ebe01393a"
+  dependencies:
+    babel-plugin-syntax-object-rest-spread "7.0.0-beta.3"
+
+babel-plugin-transform-object-rest-spread@^6.26.0:
   version "6.26.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-object-rest-spread/-/babel-plugin-transform-object-rest-spread-6.26.0.tgz#0f36692d50fef6b7e2d4b3ac1478137a963b7b06"
   dependencies:
     babel-plugin-syntax-object-rest-spread "^6.8.0"
     babel-runtime "^6.26.0"
+
+babel-plugin-transform-optional-catch-binding@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-optional-catch-binding/-/babel-plugin-transform-optional-catch-binding-7.0.0-beta.3.tgz#029c6e8db58ba5f192efcfdfab1c0e60fc5a48c6"
+  dependencies:
+    babel-plugin-syntax-optional-catch-binding "7.0.0-beta.3"
+
+babel-plugin-transform-optional-chaining@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-optional-chaining/-/babel-plugin-transform-optional-chaining-7.0.0-beta.3.tgz#ffc7e1027e5720857e9b4f2e3b2115589b734218"
+  dependencies:
+    babel-plugin-syntax-optional-chaining "7.0.0-beta.3"
+
+babel-plugin-transform-pipeline-operator@7.0.0-beta.3, babel-plugin-transform-pipeline-operator@^7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-pipeline-operator/-/babel-plugin-transform-pipeline-operator-7.0.0-beta.3.tgz#5e9c36c1b8e769394165546fe0bd3eeaa2e5b88e"
+  dependencies:
+    babel-plugin-syntax-pipeline-operator "7.0.0-beta.3"
 
 babel-plugin-transform-regenerator@^6.24.1:
   version "6.26.0"
@@ -664,13 +745,18 @@ babel-plugin-transform-strict-mode@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
-babel-polyfill@^6.26.0:
-  version "6.26.0"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-polyfill/-/babel-polyfill-6.26.0.tgz#379937abc67d7895970adc621f284cd966cf2153"
+babel-plugin-transform-throw-expressions@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-throw-expressions/-/babel-plugin-transform-throw-expressions-7.0.0-beta.3.tgz#89daad94f2fb5b671c75942bbdd527844751e711"
   dependencies:
-    babel-runtime "^6.26.0"
-    core-js "^2.5.0"
-    regenerator-runtime "^0.10.5"
+    babel-plugin-syntax-throw-expressions "7.0.0-beta.3"
+
+babel-plugin-transform-unicode-property-regex@^2.0.5:
+  version "2.0.5"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-plugin-transform-unicode-property-regex/-/babel-plugin-transform-unicode-property-regex-2.0.5.tgz#24922190f9598384d258a6c8e7409309dc6f3898"
+  dependencies:
+    babel-helper-regex "^6.26.0"
+    regexpu-core "^4.1.3"
 
 babel-preset-es2015@^6.24.1:
   version "6.24.1"
@@ -701,32 +787,44 @@ babel-preset-es2015@^6.24.1:
     babel-plugin-transform-es2015-unicode-regex "^6.24.1"
     babel-plugin-transform-regenerator "^6.24.1"
 
-babel-preset-stage-1@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-preset-stage-1/-/babel-preset-stage-1-6.24.1.tgz#7692cd7dcd6849907e6ae4a0a85589cfb9e2bfb0"
+babel-preset-stage-0@^7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-preset-stage-0/-/babel-preset-stage-0-7.0.0-beta.3.tgz#a3105088710c4995d6f0c35b75bde4d7fe972f86"
   dependencies:
-    babel-plugin-transform-class-constructor-call "^6.24.1"
-    babel-plugin-transform-export-extensions "^6.22.0"
-    babel-preset-stage-2 "^6.24.1"
+    babel-plugin-transform-do-expressions "7.0.0-beta.3"
+    babel-plugin-transform-function-bind "7.0.0-beta.3"
+    babel-preset-stage-1 "7.0.0-beta.3"
 
-babel-preset-stage-2@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-preset-stage-2/-/babel-preset-stage-2-6.24.1.tgz#d9e2960fb3d71187f0e64eec62bc07767219bdc1"
+babel-preset-stage-1@7.0.0-beta.3, babel-preset-stage-1@^7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-preset-stage-1/-/babel-preset-stage-1-7.0.0-beta.3.tgz#9b3b60ecbe84cc38b077698fef67df2b09a8f5d5"
   dependencies:
-    babel-plugin-syntax-dynamic-import "^6.18.0"
-    babel-plugin-transform-class-properties "^6.24.1"
-    babel-plugin-transform-decorators "^6.24.1"
-    babel-preset-stage-3 "^6.24.1"
+    babel-plugin-transform-decorators "7.0.0-beta.3"
+    babel-plugin-transform-export-default "7.0.0-beta.3"
+    babel-plugin-transform-optional-chaining "7.0.0-beta.3"
+    babel-plugin-transform-pipeline-operator "7.0.0-beta.3"
+    babel-preset-stage-2 "7.0.0-beta.3"
 
-babel-preset-stage-3@^6.24.1:
-  version "6.24.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-preset-stage-3/-/babel-preset-stage-3-6.24.1.tgz#836ada0a9e7a7fa37cb138fb9326f87934a48395"
+babel-preset-stage-2@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-preset-stage-2/-/babel-preset-stage-2-7.0.0-beta.3.tgz#219016653baac15e3137d8ce153718fd5cd696f5"
   dependencies:
-    babel-plugin-syntax-trailing-function-commas "^6.22.0"
-    babel-plugin-transform-async-generator-functions "^6.24.1"
-    babel-plugin-transform-async-to-generator "^6.24.1"
-    babel-plugin-transform-exponentiation-operator "^6.24.1"
-    babel-plugin-transform-object-rest-spread "^6.22.0"
+    babel-plugin-transform-export-namespace "7.0.0-beta.3"
+    babel-plugin-transform-function-sent "7.0.0-beta.3"
+    babel-plugin-transform-numeric-separator "7.0.0-beta.3"
+    babel-plugin-transform-throw-expressions "7.0.0-beta.3"
+    babel-preset-stage-3 "7.0.0-beta.3"
+
+babel-preset-stage-3@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-preset-stage-3/-/babel-preset-stage-3-7.0.0-beta.3.tgz#c78a371719199c9bfaef73ae0e27d4e72f59342b"
+  dependencies:
+    babel-plugin-syntax-dynamic-import "7.0.0-beta.3"
+    babel-plugin-transform-async-generator-functions "7.0.0-beta.3"
+    babel-plugin-transform-class-properties "7.0.0-beta.3"
+    babel-plugin-transform-object-rest-spread "7.0.0-beta.3"
+    babel-plugin-transform-optional-catch-binding "7.0.0-beta.3"
+    babel-plugin-transform-unicode-property-regex "^2.0.5"
 
 babel-register@^6.26.0:
   version "6.26.0"
@@ -747,6 +845,16 @@ babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
     core-js "^2.4.0"
     regenerator-runtime "^0.11.0"
 
+babel-template@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-template/-/babel-template-7.0.0-beta.3.tgz#ebb877b6070ce9912b0d0c22fcad3372165913a8"
+  dependencies:
+    babel-code-frame "7.0.0-beta.3"
+    babel-traverse "7.0.0-beta.3"
+    babel-types "7.0.0-beta.3"
+    babylon "7.0.0-beta.27"
+    lodash "^4.2.0"
+
 babel-template@^6.24.1, babel-template@^6.26.0:
   version "6.26.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-template/-/babel-template-6.26.0.tgz#de03e2d16396b069f46dd9fff8521fb1a0e35e02"
@@ -756,6 +864,19 @@ babel-template@^6.24.1, babel-template@^6.26.0:
     babel-types "^6.26.0"
     babylon "^6.18.0"
     lodash "^4.17.4"
+
+babel-traverse@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-traverse/-/babel-traverse-7.0.0-beta.3.tgz#3cf0a45d53d934d85275d8770775d7944fc7c199"
+  dependencies:
+    babel-code-frame "7.0.0-beta.3"
+    babel-helper-function-name "7.0.0-beta.3"
+    babel-types "7.0.0-beta.3"
+    babylon "7.0.0-beta.27"
+    debug "^3.0.1"
+    globals "^10.0.0"
+    invariant "^2.2.0"
+    lodash "^4.2.0"
 
 babel-traverse@^6.24.1, babel-traverse@^6.26.0:
   version "6.26.0"
@@ -771,6 +892,14 @@ babel-traverse@^6.24.1, babel-traverse@^6.26.0:
     invariant "^2.2.2"
     lodash "^4.17.4"
 
+babel-types@7.0.0-beta.3:
+  version "7.0.0-beta.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-types/-/babel-types-7.0.0-beta.3.tgz#cd927ca70e0ae8ab05f4aab83778cfb3e6eb20b4"
+  dependencies:
+    esutils "^2.0.2"
+    lodash "^4.2.0"
+    to-fast-properties "^2.0.0"
+
 babel-types@^6.19.0, babel-types@^6.24.1, babel-types@^6.26.0:
   version "6.26.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel-types/-/babel-types-6.26.0.tgz#a3b073f94ab49eb6fa55cd65227a334380632497"
@@ -779,6 +908,14 @@ babel-types@^6.19.0, babel-types@^6.24.1, babel-types@^6.26.0:
     esutils "^2.0.2"
     lodash "^4.17.4"
     to-fast-properties "^1.0.3"
+
+babel@^6.23.0:
+  version "6.23.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babel/-/babel-6.23.0.tgz#d0d1e7d803e974765beea3232d4e153c0efb90f4"
+
+babylon@7.0.0-beta.27:
+  version "7.0.0-beta.27"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/babylon/-/babylon-7.0.0-beta.27.tgz#b6edd30ef30619e2f630eb52585fdda84e6542cd"
 
 babylon@^6.18.0:
   version "6.18.0"
@@ -957,6 +1094,14 @@ chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
+chalk@^2.0.0:
+  version "2.3.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/chalk/-/chalk-2.3.0.tgz#b5ea48efc9c1793dccc9b4767c93914d3f2d52ba"
+  dependencies:
+    ansi-styles "^3.1.0"
+    escape-string-regexp "^1.0.5"
+    supports-color "^4.0.0"
+
 check-error@^1.0.1:
   version "1.0.2"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
@@ -1007,6 +1152,16 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
+color-convert@^1.9.0:
+  version "1.9.1"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/color-convert/-/color-convert-1.9.1.tgz#c1261107aeb2f294ebffec9ed9ecad529a6097ed"
+  dependencies:
+    color-name "^1.1.1"
+
+color-name@^1.1.1:
+  version "1.1.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
+
 colors@^1.1.2:
   version "1.1.2"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
@@ -1017,7 +1172,7 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@2.11.0, commander@^2.11.0:
+commander@2.11.0, commander@^2.8.1:
   version "2.11.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
 
@@ -1039,7 +1194,7 @@ constants-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
 
-convert-source-map@^1.5.0:
+convert-source-map@^1.1.0, convert-source-map@^1.5.0:
   version "1.5.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/convert-source-map/-/convert-source-map-1.5.0.tgz#9acd70851c6d5dfdd93d9282e5edf94a03ff46b5"
 
@@ -1113,7 +1268,7 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
-debug@3.1.0:
+debug@3.1.0, debug@^3.0.1:
   version "3.1.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
@@ -1229,7 +1384,7 @@ error-ex@^1.2.0:
   dependencies:
     is-arrayish "^0.2.1"
 
-escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2:
+escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
@@ -1349,6 +1504,14 @@ fs-extra@^0.30.0:
     path-is-absolute "^1.0.0"
     rimraf "^2.2.8"
 
+fs-extra@^5.0.0:
+  version "5.0.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/fs-extra/-/fs-extra-5.0.0.tgz#414d0110cdd06705734d055652c5411260c31abd"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
 fs-readdir-recursive@^1.0.0:
   version "1.0.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/fs-readdir-recursive/-/fs-readdir-recursive-1.0.0.tgz#8cd1745c8b4f8a29c8caec392476921ba195f560"
@@ -1425,7 +1588,7 @@ glob-parent@^2.0.0:
   dependencies:
     is-glob "^2.0.0"
 
-glob@7.1.2, glob@^7.0.5, glob@^7.1.2:
+glob@7.1.2, glob@^7.0.0, glob@^7.0.5, glob@^7.1.2:
   version "7.1.2"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
@@ -1436,11 +1599,15 @@ glob@7.1.2, glob@^7.0.5, glob@^7.1.2:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
+globals@^10.0.0:
+  version "10.3.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/globals/-/globals-10.3.0.tgz#716aba93657b56630b5a0e77de5ea8ac6215afaa"
+
 globals@^9.18.0:
   version "9.18.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/globals/-/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
 
-graceful-fs@^4.1.2, graceful-fs@^4.1.4, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
+graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
@@ -1584,7 +1751,7 @@ interpret@^1.0.0:
   version "1.0.4"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/interpret/-/interpret-1.0.4.tgz#820cdd588b868ffb191a809506d6c9c8f212b1b0"
 
-invariant@^2.0.0, invariant@^2.2.2:
+invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -1662,6 +1829,10 @@ is-number@^3.0.0:
   dependencies:
     kind-of "^3.0.2"
 
+is-plain-obj@^1.1.0:
+  version "1.1.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/is-plain-obj/-/is-plain-obj-1.1.0.tgz#71a50c8429dfca773c92a390a4a03b39fcd51d3e"
+
 is-posix-bracket@^0.1.0:
   version "0.1.1"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
@@ -1726,6 +1897,10 @@ jsesc@^1.3.0:
   version "1.3.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/jsesc/-/jsesc-1.3.0.tgz#46c3fec8c1892b12b0833db9bc7622176dbab34b"
 
+jsesc@^2.5.1:
+  version "2.5.1"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/jsesc/-/jsesc-2.5.1.tgz#e421a2a8e20d6b0819df28908f782526b96dd1fe"
+
 jsesc@~0.5.0:
   version "0.5.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
@@ -1755,6 +1930,12 @@ json5@^0.5.0, json5@^0.5.1:
 jsonfile@^2.1.0:
   version "2.4.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/jsonfile/-/jsonfile-2.4.0.tgz#3736a2b428b87bbda0cc83b53fa3d633a35c2ae8"
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
+jsonfile@^4.0.0:
+  version "4.0.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/jsonfile/-/jsonfile-4.0.0.tgz#8771aae0799b64076b76640fca058f9c10e33ecb"
   optionalDependencies:
     graceful-fs "^4.1.6"
 
@@ -1870,7 +2051,7 @@ memory-fs@^0.4.0, memory-fs@~0.4.1:
     errno "^0.1.3"
     readable-stream "^2.0.1"
 
-micromatch@^2.1.5:
+micromatch@^2.1.5, micromatch@^2.3.11:
   version "2.3.11"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
   dependencies:
@@ -2101,13 +2282,13 @@ osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-output-file-sync@^1.1.2:
-  version "1.1.2"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/output-file-sync/-/output-file-sync-1.1.2.tgz#d0a33eefe61a205facb90092e826598d5245ce76"
+output-file-sync@^2.0.0:
+  version "2.0.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/output-file-sync/-/output-file-sync-2.0.0.tgz#5d348a1a1eaed1ad168648a01a2d6d13078ce987"
   dependencies:
-    graceful-fs "^4.1.4"
+    graceful-fs "^4.1.11"
+    is-plain-obj "^1.1.0"
     mkdirp "^0.5.1"
-    object-assign "^4.1.0"
 
 pako@~0.2.0:
   version "0.2.9"
@@ -2151,6 +2332,10 @@ path-exists@^2.0.0:
 path-is-absolute@^1.0.0, path-is-absolute@^1.0.1:
   version "1.0.1"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
+
+path-parse@^1.0.5:
+  version "1.0.5"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/path-parse/-/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
 
 path-to-regexp@^1.7.0:
   version "1.7.0"
@@ -2262,6 +2447,10 @@ querystring@0.2.0:
   version "0.2.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
 
+ramda@^0.25.0:
+  version "0.25.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
+
 randomatic@^1.1.3:
   version "1.1.7"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/randomatic/-/randomatic-1.1.7.tgz#c7abe9cc8b87c0baa876b19fde83fd464797e38c"
@@ -2366,13 +2555,15 @@ redux@^3.7.2:
     loose-envify "^1.1.0"
     symbol-observable "^1.0.3"
 
-regenerate@^1.2.1:
+regenerate-unicode-properties@^5.1.1:
+  version "5.1.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/regenerate-unicode-properties/-/regenerate-unicode-properties-5.1.3.tgz#54f5891543468f36f2274b67c6bc4c033c27b308"
+  dependencies:
+    regenerate "^1.3.3"
+
+regenerate@^1.2.1, regenerate@^1.3.3:
   version "1.3.3"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/regenerate/-/regenerate-1.3.3.tgz#0c336d3980553d755c39b586ae3b20aa49c82b7f"
-
-regenerator-runtime@^0.10.5:
-  version "0.10.5"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
 
 regenerator-runtime@^0.11.0:
   version "0.11.0"
@@ -2400,13 +2591,34 @@ regexpu-core@^2.0.0:
     regjsgen "^0.2.0"
     regjsparser "^0.1.4"
 
+regexpu-core@^4.1.3:
+  version "4.1.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/regexpu-core/-/regexpu-core-4.1.3.tgz#fb81616dbbc2a917a7419b33f8379144f51eb8d0"
+  dependencies:
+    regenerate "^1.3.3"
+    regenerate-unicode-properties "^5.1.1"
+    regjsgen "^0.3.0"
+    regjsparser "^0.2.1"
+    unicode-match-property-ecmascript "^1.0.3"
+    unicode-match-property-value-ecmascript "^1.0.1"
+
 regjsgen@^0.2.0:
   version "0.2.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/regjsgen/-/regjsgen-0.2.0.tgz#6c016adeac554f75823fe37ac05b92d5a4edb1f7"
 
+regjsgen@^0.3.0:
+  version "0.3.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/regjsgen/-/regjsgen-0.3.0.tgz#0ee4a3e9276430cda25f1e789ea6c15b87b0cb43"
+
 regjsparser@^0.1.4:
   version "0.1.5"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/regjsparser/-/regjsparser-0.1.5.tgz#7ee8f84dc6fa792d3fd0ae228d24bd949ead205c"
+  dependencies:
+    jsesc "~0.5.0"
+
+regjsparser@^0.2.1:
+  version "0.2.1"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/regjsparser/-/regjsparser-0.2.1.tgz#c3787553faf04e775c302102ef346d995000ec1c"
   dependencies:
     jsesc "~0.5.0"
 
@@ -2462,6 +2674,12 @@ require-directory@^2.1.1:
 require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
+
+resolve@^1.3.2:
+  version "1.5.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/resolve/-/resolve-1.5.0.tgz#1f09acce796c9a762579f31b2c1cc4c3cddf9f36"
+  dependencies:
+    path-parse "^1.0.5"
 
 right-align@^0.1.1:
   version "0.1.3"
@@ -2552,7 +2770,7 @@ source-map-support@^0.4.15:
   dependencies:
     source-map "^0.5.6"
 
-source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.1, source-map@~0.5.3:
+source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.1, source-map@~0.5.3:
   version "0.5.7"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
 
@@ -2659,6 +2877,12 @@ supports-color@^3.1.0:
   dependencies:
     has-flag "^1.0.0"
 
+supports-color@^4.0.0:
+  version "4.5.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/supports-color/-/supports-color-4.5.0.tgz#be7a0de484dec5c5cddf8b3d59125044912f635b"
+  dependencies:
+    has-flag "^2.0.0"
+
 symbol-observable@^1.0.3:
   version "1.0.4"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/symbol-observable/-/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
@@ -2705,6 +2929,10 @@ to-arraybuffer@^1.0.0:
 to-fast-properties@^1.0.3:
   version "1.0.3"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
+
+to-fast-properties@^2.0.0:
+  version "2.0.0"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
 
 tough-cookie@~2.3.0:
   version "2.3.3"
@@ -2755,16 +2983,35 @@ uid-number@^0.0.6:
   version "0.0.6"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
+unicode-canonical-property-names-ecmascript@^1.0.2:
+  version "1.0.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-1.0.3.tgz#f6119f417467593c0086357c85546b6ad5abc583"
+
+unicode-match-property-ecmascript@^1.0.3:
+  version "1.0.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/unicode-match-property-ecmascript/-/unicode-match-property-ecmascript-1.0.3.tgz#db9b1cb4ffc67e0c5583780b1b59370e4cbe97b9"
+  dependencies:
+    unicode-canonical-property-names-ecmascript "^1.0.2"
+    unicode-property-aliases-ecmascript "^1.0.3"
+
+unicode-match-property-value-ecmascript@^1.0.1:
+  version "1.0.1"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/unicode-match-property-value-ecmascript/-/unicode-match-property-value-ecmascript-1.0.1.tgz#fea059120a016f403afd3bf586162b4db03e0604"
+
+unicode-property-aliases-ecmascript@^1.0.3:
+  version "1.0.3"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-1.0.3.tgz#ac3522583b9e630580f916635333e00c5ead690d"
+
+universalify@^0.1.0:
+  version "0.1.1"
+  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
+
 url@^0.11.0:
   version "0.11.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/url/-/url-0.11.0.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
-
-user-home@^1.1.1:
-  version "1.1.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/user-home/-/user-home-1.1.1.tgz#2b5be23a32b63a7c9deb8d0f28d485724a3df190"
 
 util-deprecate@~1.0.1:
   version "1.0.2"
@@ -2779,12 +3026,6 @@ util@0.10.3, util@^0.10.3:
 uuid@^3.0.0:
   version "3.1.0"
   resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
-
-v8flags@^2.1.1:
-  version "2.1.1"
-  resolved "https://onshift.jfrog.io/onshift/api/npm/npm-main/v8flags/-/v8flags-2.1.1.tgz#aab1a1fa30d45f88dd321148875ac02c0b55e5b4"
-  dependencies:
-    user-home "^1.1.1"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
