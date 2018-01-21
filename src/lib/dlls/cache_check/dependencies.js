@@ -1,9 +1,9 @@
-let { pick } = require('lodash');
-module.exports = (config) => function getDependencies() {
+let { pick } = require( 'lodash' );
+module.exports = ( config ) => function getDependencies() {
     try {
         let {
             'meta.constants': {
-                filenames: {hash},
+                filenames: { hash },
                 paths: {
                     home,
                     cache,
@@ -14,14 +14,14 @@ module.exports = (config) => function getDependencies() {
             'meta.splits.dlls': dlls,
             output,
             context,
-            module: {extensions} = {},
-            resolve: {alias} = {}
+            module: { extensions } = {},
+            resolve: { alias } = {}
         } = config;
 
-        let pack = require(home('package.json').str());
+        let pack = require( home( 'package.json' ).str());
 
         return Object.assign(
-            pick(pack, 'dependencies', 'devDependencies'),
+            pick( pack, 'dependencies', 'devDependencies' ),
             {
                 config: {
                     dlls,
@@ -31,14 +31,14 @@ module.exports = (config) => function getDependencies() {
                     extensions,
                     alias,
 
-                    entry: dlls.entry,
-                    home: Home(),
-                    cache: cache(),
+                    entry:      dlls.entry,
+                    home:       Home(),
+                    cache:      cache(),
                     publicPath: publicPath()
                 }
             }
         );
-    } catch(err) {
+    } catch ( err ) {
         /* eslint-disable */
         console.log(err);
         console.log('[CACHE FATAL] Cannot access package.json');

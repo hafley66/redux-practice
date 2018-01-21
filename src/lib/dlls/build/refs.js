@@ -1,13 +1,13 @@
 let
-    webpack = require('webpack');
+    webpack = require( 'webpack' );
 
 const referencer = {
-    query: (config, slice, parent) => {
+    query: ( config, slice, parent ) => {
         const {
-                meta: {constants: {paths: {dll: {manifest}}}},
+                meta: { constants: { paths: { dll: { manifest } } } },
                 context
             } = config,
-            {'entry:expanded': dllsEntry} = parent;
+            { 'entry:expanded': dllsEntry } = parent;
 
         return {
             manifest,
@@ -15,27 +15,27 @@ const referencer = {
             dllsEntry
         };
     },
-    buildWith: (manifestFn, context) => dllName => new webpack.DllReferencePlugin(
+    buildWith: ( manifestFn, context ) => dllName => new webpack.DllReferencePlugin(
         {
             manifest: require( manifestFn( dllName ).toString()),
-            context: context.toString()
+            context:  context.toString()
         }
     )
 };
-let Referencer = (ext = referencer) =>
-    function Referencer(config, slice, parent) {
-        let {dllsEntry, context, manifest} = ext.query(config, slice, parent);
-        let referenceFn = ext.buildWith(manifest, context);
+let Referencer = ( ext = referencer ) =>
+    function Referencer( config, slice, parent ) {
+        let { dllsEntry, context, manifest } = ext.query( config, slice, parent );
+        let referenceFn = ext.buildWith( manifest, context );
 
-        let {'meta.splits.dlls.cache_check': {assets}} = config;
+        let { 'meta.splits.dlls.cache_check': { assets } } = config;
 
-        return function(results) {
+        return function dsad( results ) {
             return {
                 config: {
-                    plugins: Object.keys(dllsEntry).map(referenceFn),
-                    meta: {
+                    plugins: Object.keys( dllsEntry ).map( referenceFn ),
+                    meta:    {
                         'asset_manifest': {
-                            queue: assets.finder.all(true)
+                            queue: assets.finder.all( true )
                         }
                     }
                 },

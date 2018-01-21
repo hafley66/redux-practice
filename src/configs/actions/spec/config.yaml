@@ -1,5 +1,0 @@
-output:
-  path: build
-  publicPath: /
-context: ./src
-cache: ./build_cache

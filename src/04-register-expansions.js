@@ -8,6 +8,10 @@ let baseMetaExpansions = [
         file: './lib/env'
     },
     {
+        key:  'meta.cache.packageJson',
+        file: './lib/cache-package-json'
+    },
+    {
         key:  'meta.entry.set!',
         file: './lib/entry/set!'
     },

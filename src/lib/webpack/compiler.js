@@ -4,7 +4,6 @@ const { omit } = require( 'lodash' );
 const outputWith = require( './output' );
 
 module.exports = ( arg, { config }) => {
-    debugger;
     const validConfig = omit( config, 'meta' );
     const instance = webpack( validConfig );
 

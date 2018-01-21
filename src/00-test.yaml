@@ -1,10 +1,11 @@
 entry:
-    main: test.js
+    main: ./test.js
+    other: ./testb.js
 output:
     publicPath: /base
-    path: build
+    path: ./build
+context: ./src
 meta:
-    buildCache: ./build-cache
     env:
         - NODE_ENV
         - HELLO
@@ -16,3 +17,12 @@ meta:
             - babel-polyfill
     commons: true
     assetManifest: true
+    loaders:
+        scripts: true
+        styles: true
+        files: true
+        media: true
+    dlls:
+        entry:
+            index:
+                - lodash

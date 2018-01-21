@@ -23,7 +23,7 @@ const DEFAULT_DYNAMIC = ( depsSet = new Set ) => merge(
     {},
     DEFAULT_STATIC,
     {
-        vendors: ( config ) => ({
+        vendors: ({
             name: '01-implicit_vendors',
             minChunks( module ) {
                 let index = module.context && module.context.indexOf( 'node_modules' );
@@ -34,18 +34,17 @@ const DEFAULT_DYNAMIC = ( depsSet = new Set ) => merge(
                     return true;
                 }
                 return false;
-            },
-            names: Object.keys( config.entry )
+            }
         }),
         depsSet
     }
 );
 
-module.exports = ( slice = DEFAULTS, { config }) => {
+module.exports = ( slice = DEFAULTS ) => {
     if ( slice ) {
         let
             defaults = DEFAULT_DYNAMIC(),
-            vendors = ( slice === true || slice.vendors ) && defaults.vendors( config ) || undefined,
+            vendors = ( slice === true || slice.vendors ) && defaults.vendors || undefined,
             commons = ( slice === true || slice.commons ) && defaults.commons || undefined,
             bootloader = ( slice === true || slice.bootloader ) && defaults.bootloader || undefined,
             rest = isArray( slice.args ) ? slice.args : [];

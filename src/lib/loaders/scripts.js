@@ -12,8 +12,7 @@ const DEFAULTS = {
 module.exports = ( args = false ) => {
     const rules = values( merge(
         {},
-        DEFAULTS,
-        args
+        args === true ? DEFAULTS : args
     ));
 
     return {

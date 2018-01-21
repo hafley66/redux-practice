@@ -8,14 +8,12 @@ module.exports = function extractPaths( resolvedConfig ) {
     const meta = resolvedConfig.meta;
 
     new WebpackOptionsDefaulter().process( c );
-
-    const buildPath = get( c, 'output.path' ) || './build';
-    const originalPublicPath = get( c, '.devServer.publicPath' ) || get( c, '.output.publicPath' ) || '/';
-
+    const buildPath = Path.CWD.resolve( get( c, 'output.path' ) || './build' );
+    const originalPublicPath = withSlashes( get( c, 'devServer.publicPath' ) || get( c, 'output.publicPath' ) || '/' );
     const absolutePublicPath = getUrl({
-        host:       get( c, '.devServer.host' ),
-        https:      get( c, '.devServer.https' ),
-        port:       get( c, '.devServer.port' ),
+        host:       get( c, 'devServer.host' ),
+        https:      get( c, 'devServer.https' ),
+        port:       get( c, 'devServer.port' ),
         publicPath: originalPublicPath
     });
 
@@ -23,7 +21,7 @@ module.exports = function extractPaths( resolvedConfig ) {
 
     set( c, 'output.publicPath', absolutePublicPath );
     set( c, 'devServer.publicPath', absolutePublicPath );
-    set( c, 'output.path', Path.CWD.resolve( buildPath ));
+    set( c, 'output.path', ( buildPath ));
     set( c, 'context', Path.CWD.resolve( c.context ));
 
     return ({
@@ -32,8 +30,7 @@ module.exports = function extractPaths( resolvedConfig ) {
             absolutePublicPath,
             relativePublicPath: originalPublicPath,
 
-            $output:             Path.CWD.resolves( buildPath ),
-            $build:              Path.CWD.resolves( meta.buildCache || 'buildCache' ),
+            $build:              new Path( buildPath ),
             $context:            Path.CWD.resolves( c.context ),
             $absolutePublicPath: new Path( absolutePublicPath ),
             $relativePublicPath: new Path( originalPublicPath )
@@ -41,6 +38,12 @@ module.exports = function extractPaths( resolvedConfig ) {
         ...c
     });
 };
+
+function withSlashes( publicPath ) {
+    if ( !publicPath.endsWith( '/' ))
+        return publicPath = `${publicPath}/`;
+    return publicPath;
+}
 
 function getUrl({
     https,

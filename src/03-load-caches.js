@@ -4,7 +4,7 @@ const isJson = x => /\.json$/.test( `${x}` );
 const grepJson = pathFn => pathFn.resolvesDir().filter( isJson );
 const getAndMapManifests = files => files.reduce(
     ( sum, fileFn ) => (
-        sum[ fileFn.basename() ] = fileFn.require(),
+        sum[ fileFn.basename() ] = fileFn.tryRequire(),
         sum
     ),
     {}
@@ -18,7 +18,7 @@ module.exports = function loadCaches( config ) {
         $locks,
         $dllManifests,
         $assetManifest
-    ] = [ 'locks', 'dll-manifests', 'asset-manifest.json' ].map( x => $build.resolves( x ).ensure());
+    ] = [ 'locks', 'dlls', 'asset-manifest.json' ].map( x => $build.resolves( x ).ensure());
 
     return concatMerge({
         meta: {
