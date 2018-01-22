@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 let statsPresetToOptions = require( 'webpack/lib/Stats.js' ).presetToOptions;
 
 module.exports = ( config, compiler, resolve, reject ) => ( err, stats ) => {

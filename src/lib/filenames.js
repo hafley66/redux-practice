@@ -11,10 +11,9 @@ module.exports = ( args, { config = {} }) => {
     }
 
     let nextSlice = {
-        js:    () => !hash ? `[name].js` : `[name].[chunkhash].js`,
-        jsDLL: () => !hash ? `[name].dll.js` : `[name].[chunkhash].dll.js`,
-        css:   () => !hash ? `[name].css` : `[name].[contenthash].css`,
-        file:  () => !hash ? `[name].[ext]` : `[name].[ext]?[hash]`
+        js:   () => !hash ? `[name].js` : `[name].[chunkhash].js`,
+        css:  () => !hash ? `[name].css` : `[name].[contenthash].css`,
+        file: () => !hash ? `[name].[ext]` : `[name].[ext]?[hash]`
     };
     let configNext =  {
         output: {

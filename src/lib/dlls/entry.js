@@ -1,6 +1,5 @@
 const
-    pathFn = require( '../../util/path' ),
-    { isPlainObject, isEmpty, isString, uniq, flatten, keys, mapValues, memoize, isRegExp } =  require( 'lodash' ),
+    { mapKeys, isPlainObject, isEmpty, isString, uniq, flatten, keys, mapValues, isRegExp } =  require( 'lodash' ),
     DSL_REGEX_REX = /^\s*=~\s*/i;
 
 let isRegex = str => (
@@ -12,36 +11,38 @@ let isRegex = str => (
         ? str
         : new RegExp( str.replace( DSL_REGEX_REX, '' ));
 
-let
-    packageJson = memoize(
-        () => keys( require(
-            pathFn( process.cwd(), 'package.json' ).str()
-        ).dependencies )
-    ),
-    expandVendors = vendors => ([
+let expandVendors = ( packageJson, vendors ) => ([
         ...vendors.filter( v => !isRegex( v )),
         ...flatten(
             vendors
                 .filter( v => isRegex( v ))
                 .map( normalizeRegex )
                 .map( vendorRex =>
-                    packageJson()
+                    packageJson
                         .filter( dep => dep.match( vendorRex ))
                 )
         )
     ]),
-    expandAllEntries = ( entries ) => mapValues(
+    expandAllEntries = ( packageJson, entries ) => mapValues(
         entries,
         vendors =>
-            uniq( expandVendors( vendors ))
-
+            uniq( expandVendors( packageJson, vendors ))
     );
 
 
-module.exports = ( __, slice, parent = {}) => {
+module.exports = ( slice, { config, parent }) => {
+    let { dependencies } = config.meta.cache.packageJson.value;
     if ( !slice && parent && !isEmpty( parent ) && isPlainObject( parent ))
         slice = parent;
+    let entries = expandAllEntries( keys( dependencies ), slice );
+
+    let order = 0;
+    const orderedEntries = mapKeys(
+        entries,
+        ( vendorsArray, dllName ) => `0${order++}-${dllName}`
+    );
+
     return ({
-        parent: { 'entry:expanded': expandAllEntries( slice ) }
+        parent: { 'entry:expanded': orderedEntries }
     });
 };

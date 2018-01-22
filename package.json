@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run mocha:babel:watch",
+    "tast": "node src/00-test.js",
     "mocha": "echo $(pwd); ./scripts/test.sh",
     "mocha:watch": "npm run mocha -- --watch",
     "mocha:babel": "TEST_FOLDER=src npm run mocha -- --compilers js:babel-core/register",

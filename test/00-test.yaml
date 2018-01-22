@@ -2,10 +2,15 @@ entry:
     main: ./test.js
     other: ./testb.js
 output:
-    publicPath: /base
+    publicPath: /
     path: ./build
 context: ./src
+devServer:
+    host: '0.0.0.0'
+    port: 3003
+
 meta:
+    extends: ./src/extension.yaml
     env:
         - NODE_ENV
         - HELLO
@@ -15,7 +20,10 @@ meta:
             webpack: true
         globals:
             - babel-polyfill
-    commons: true
+    commons: 
+        vendor: false
+        commons: true
+        bootloader: true
     assetManifest: true
     loaders:
         scripts: true
@@ -25,4 +33,9 @@ meta:
     dlls:
         entry:
             index:
-                - lodash
+                - =~ lodash
+                - babel-polyfill
+                - react-hot-loader/patch
+                - webpack-dev-server/client
+                - webpack/hot/only-dev-server
+        cache: false

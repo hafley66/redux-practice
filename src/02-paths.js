@@ -1,4 +1,4 @@
-const Path = require( './Path' );
+const { Path, FilePath, PublicPath } = require( './path' );
 const { omit, get, set } = require( 'lodash' );
 const WebpackOptionsDefaulter = require( 'webpack/lib/WebpackOptionsDefaulter' );
 
@@ -7,9 +7,13 @@ module.exports = function extractPaths( resolvedConfig ) {
     const c = omit( resolvedConfig, 'meta' );
     const meta = resolvedConfig.meta;
 
+    c.output.filename = c.output.filename || '';
+
     new WebpackOptionsDefaulter().process( c );
     const buildPath = Path.CWD.resolve( get( c, 'output.path' ) || './build' );
-    const originalPublicPath = withSlashes( get( c, 'devServer.publicPath' ) || get( c, 'output.publicPath' ) || '/' );
+    const originalPublicPath = withSlashes(
+        get( c, 'devServer.publicPath' ) || get( c, 'output.publicPath' ) || '/'
+    );
     const absolutePublicPath = getUrl({
         host:       get( c, 'devServer.host' ),
         https:      get( c, 'devServer.https' ),
@@ -30,10 +34,10 @@ module.exports = function extractPaths( resolvedConfig ) {
             absolutePublicPath,
             relativePublicPath: originalPublicPath,
 
-            $build:              new Path( buildPath ),
+            $build:              new FilePath( buildPath ),
             $context:            Path.CWD.resolves( c.context ),
-            $absolutePublicPath: new Path( absolutePublicPath ),
-            $relativePublicPath: new Path( originalPublicPath )
+            $absolutePublicPath: new PublicPath( absolutePublicPath ),
+            $relativePublicPath: new PublicPath( originalPublicPath )
         },
         ...c
     });

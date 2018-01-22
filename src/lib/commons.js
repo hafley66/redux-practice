@@ -10,11 +10,11 @@ const
 
 const DEFAULT_STATIC = {
     commons: {
-        name:      '02-implicit_commons',
+        name:      '12-implicit_commons',
         minChunks: 2
     },
     bootloader: {
-        name:      '00-webpack_manifest',
+        name:      '10-webpack_manifest',
         minChunks: Infinity
     }
 };
@@ -24,7 +24,7 @@ const DEFAULT_DYNAMIC = ( depsSet = new Set ) => merge(
     DEFAULT_STATIC,
     {
         vendors: ({
-            name: '01-implicit_vendors',
+            name: '11-implicit_vendors',
             minChunks( module ) {
                 let index = module.context && module.context.indexOf( 'node_modules' );
                 if ( index && index !== -1 ) {

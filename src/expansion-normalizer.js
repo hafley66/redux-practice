@@ -1,4 +1,4 @@
-import { mapKeys, isFunction, isPlainObject } from 'lodash';
+import { isFunction, isPlainObject } from 'lodash';
 
 export const
     normalizeTransformPlainObject = ({ expander, normalizer }) => (

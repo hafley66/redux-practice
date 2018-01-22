@@ -16,26 +16,26 @@ module.exports = function loadCaches( config ) {
 
     const [
         $locks,
-        $dllManifests,
-        $assetManifest
-    ] = [ 'locks', 'dlls', 'asset-manifest.json' ].map( x => $build.resolves( x ).ensure());
+        $dlls,
+        $assets
+    ] = [ 'locks', 'dlls', 'assets' ].map( x => $build.resolves( x ).ensure());
+
+    config.output.path = $assets.resolve();
 
     return concatMerge({
         meta: {
-            $dllManifests,
+            $dlls,
             $locks,
-            $assetManifest,
+            $assets,
 
-            manifests: {
-                get dlls() {
-                    return getAndMapManifests( grepJson( $dllManifests ));
-                },
-                get locks() {
-                    return getAndMapManifests( grepJson( $locks ));
-                },
-                get assets() {
-                    return $assetManifest.tryRequire();
-                }
+            dllAssets() {
+                return getAndMapManifests( grepJson( $dlls ));
+            },
+            locks() {
+                return getAndMapManifests( grepJson( $locks ));
+            },
+            assets() {
+                return getAndMapManifests( grepJson( $assets ));
             }
         }
     }, config );

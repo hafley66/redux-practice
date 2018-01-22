@@ -36,6 +36,22 @@ let baseMetaExpansions = [
         file: './lib/minify'
     },
     {
+        key:  'meta.cache.config',
+        file: './lib/cache-config'
+    },
+    {
+        key:  'meta.dlls.entry',
+        file: './lib/dlls/entry'
+    },
+    {
+        key:  'meta.dlls.build',
+        file: './lib/dlls/build'
+    },
+    {
+        key:  'meta.dlls.refs',
+        file: './lib/dlls/refs'
+    },
+    {
         key:  'meta.commons',
         file: './lib/commons'
     },
@@ -48,13 +64,13 @@ let baseMetaExpansions = [
         file: './lib/webpack/compiler'
     }
 
-
 ].map(({ key, file }) => {
     return {
         key,
         transform: require( file )
     };
 });
+
 module.exports = ( config ) => {
     config.meta.expansions = baseMetaExpansions;
     return config;

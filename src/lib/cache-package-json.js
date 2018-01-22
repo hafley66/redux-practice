@@ -1,13 +1,11 @@
-const DependencyLockPath = require( '../dependency-lock-path' );
+const DependencyLock = require( '../dependency-lock' );
 
 function createPackageJsonLock( arg, { config }) {
     let packageJson = config.meta.$cwd.resolves( 'package.json' ).tryRequire();
-    let lock = new DependencyLockPath(
-        config.meta.$locks.resolve( 'package.json' ),
-        null,
+    let lock = new DependencyLock(
+        config.meta.$locks.resolves( 'package.json' ),
         transform( packageJson )
     );
-    debugger;
     return { local: lock };
 }
 
